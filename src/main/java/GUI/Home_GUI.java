@@ -61,11 +61,11 @@ public class Home_GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý cửa hàng cà phê");
 
-        pnlMain.setBackground(new java.awt.Color(255, 255, 255));
+        pnlMain.setBackground(new java.awt.Color(94, 84, 142));
         pnlMain.setPreferredSize(new java.awt.Dimension(1300, 700));
 
-        jPanel2.setBackground(new java.awt.Color(204, 153, 255));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 153, 255), 10, true));
+        jPanel2.setBackground(new java.awt.Color(193, 158, 224));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(193, 158, 224), 10, true));
 
         lblLoginSessionUsername.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblLoginSessionUsername.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,7 +85,7 @@ public class Home_GUI extends javax.swing.JFrame {
         lblLoginSessionDateTimeDisplay.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblLoginSessionDateTimeDisplay.setText("jLabel2");
 
-        jButton1.setBackground(new java.awt.Color(153, 102, 255));
+        jButton1.setBackground(new java.awt.Color(114, 81, 181));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Đăng xuất");
@@ -130,10 +130,10 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlMenu.setBackground(new java.awt.Color(153, 102, 255));
-        pnlMenu.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 102, 255), 10, true));
+        pnlMenu.setBackground(new java.awt.Color(193, 158, 224));
+        pnlMenu.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(193, 158, 224), 10, true));
 
-        pnlBanHang.setBackground(new java.awt.Color(204, 153, 255));
+        pnlBanHang.setBackground(new java.awt.Color(114, 81, 181));
         pnlBanHang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlBanHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,7 +163,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlHangHoa.setBackground(new java.awt.Color(204, 153, 255));
+        pnlHangHoa.setBackground(new java.awt.Color(114, 81, 181));
         pnlHangHoa.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlHangHoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -193,7 +193,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlSanPham.setBackground(new java.awt.Color(204, 153, 255));
+        pnlSanPham.setBackground(new java.awt.Color(114, 81, 181));
         pnlSanPham.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -223,7 +223,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlNhapHang.setBackground(new java.awt.Color(204, 153, 255));
+        pnlNhapHang.setBackground(new java.awt.Color(114, 81, 181));
         pnlNhapHang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlNhapHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -253,7 +253,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlNhanVien.setBackground(new java.awt.Color(204, 153, 255));
+        pnlNhanVien.setBackground(new java.awt.Color(114, 81, 181));
         pnlNhanVien.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -283,7 +283,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlTaiKhoan.setBackground(new java.awt.Color(204, 153, 255));
+        pnlTaiKhoan.setBackground(new java.awt.Color(114, 81, 181));
         pnlTaiKhoan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlTaiKhoan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -313,7 +313,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlThongKe.setBackground(new java.awt.Color(204, 153, 255));
+        pnlThongKe.setBackground(new java.awt.Color(114, 81, 181));
         pnlThongKe.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -343,7 +343,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlHoaDon.setBackground(new java.awt.Color(204, 153, 255));
+        pnlHoaDon.setBackground(new java.awt.Color(114, 81, 181));
         pnlHoaDon.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -409,17 +409,17 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addComponent(pnlThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
-        pnlFunction.setBackground(new java.awt.Color(204, 153, 255));
-        pnlFunction.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 153, 255), 10, true));
+        pnlFunction.setBackground(new java.awt.Color(193, 158, 224));
+        pnlFunction.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142), 10));
 
         javax.swing.GroupLayout pnlFunctionLayout = new javax.swing.GroupLayout(pnlFunction);
         pnlFunction.setLayout(pnlFunctionLayout);
         pnlFunctionLayout.setHorizontalGroup(
             pnlFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 931, Short.MAX_VALUE)
+            .addGap(0, 955, Short.MAX_VALUE)
         );
         pnlFunctionLayout.setVerticalGroup(
             pnlFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -472,7 +472,7 @@ public class Home_GUI extends javax.swing.JFrame {
 
     private void disablePanel() {
         if (selectedFunction != null) {
-            selectedFunction.setBackground(new Color(204,153,255));
+            selectedFunction.setBackground(new Color(114,81,181));
             selectedFunction.setBorder(new LineBorder(new Color(255,255,255),1,false));
             selectedFunction.getComponent(0).setForeground(new Color(255,255,255));
         }
@@ -482,8 +482,8 @@ public class Home_GUI extends javax.swing.JFrame {
         disablePanel();
         selectedFunction = panel;
         selectedFunction.setBackground(new Color(255,255,255));
-        selectedFunction.getComponent(0).setForeground(new Color(204,153,255));
-        selectedFunction.setBorder(new LineBorder(new Color(204,153,255),1,false));
+        selectedFunction.getComponent(0).setForeground(new Color(114,81,181));
+        selectedFunction.setBorder(new LineBorder(new Color(114,81,181),1,false));
     }
     
     private void openFunctionPanel(JPanel panel) {

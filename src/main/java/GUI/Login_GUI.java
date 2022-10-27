@@ -37,7 +37,7 @@ public class Login_GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlLogin.setBackground(new java.awt.Color(204, 153, 255));
+        pnlLogin.setBackground(new java.awt.Color(193, 158, 224));
         pnlLogin.setPreferredSize(new java.awt.Dimension(425, 203));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -48,25 +48,21 @@ public class Login_GUI extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tên đăng nhập:");
 
-        txtLoginUsername.setBackground(new java.awt.Color(255, 255, 255));
         txtLoginUsername.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         txtLoginUsername.setForeground(new java.awt.Color(204, 153, 255));
         txtLoginUsername.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-        txtLoginUsername.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         txtLoginUsername.setSelectionColor(new java.awt.Color(153, 102, 255));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Mật khẩu:");
 
-        txtLoginPassword.setBackground(new java.awt.Color(255, 255, 255));
         txtLoginPassword.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         txtLoginPassword.setForeground(new java.awt.Color(153, 102, 255));
         txtLoginPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-        txtLoginPassword.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         txtLoginPassword.setSelectionColor(new java.awt.Color(153, 102, 255));
 
-        btnLoginConfirm.setBackground(new java.awt.Color(153, 102, 255));
+        btnLoginConfirm.setBackground(new java.awt.Color(114, 81, 181));
         btnLoginConfirm.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnLoginConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnLoginConfirm.setText("Đăng nhập");
@@ -88,7 +84,7 @@ public class Login_GUI extends javax.swing.JFrame {
                     .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtLoginUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                         .addComponent(txtLoginPassword)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

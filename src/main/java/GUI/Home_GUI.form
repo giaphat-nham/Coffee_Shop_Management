@@ -43,7 +43,7 @@
     <Container class="javax.swing.JPanel" name="pnlMain">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="8e" green="54" red="5e" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1300, 700]"/>
@@ -86,12 +86,12 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="cc" type="rgb"/>
+              <Color blue="e0" green="9e" red="c1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true" thickness="10">
-                  <Color PropertyName="color" blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color PropertyName="color" blue="e0" green="9e" red="c1" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -193,7 +193,7 @@
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="66" red="99" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="1"/>
@@ -221,12 +221,12 @@
         <Container class="javax.swing.JPanel" name="pnlMenu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="99" type="rgb"/>
+              <Color blue="e0" green="9e" red="c1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true" thickness="10">
-                  <Color PropertyName="color" blue="ff" green="66" red="99" type="rgb"/>
+                  <Color PropertyName="color" blue="e0" green="9e" red="c1" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -270,7 +270,7 @@
                       <Component id="pnlThongKe" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="pnlHoaDon" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <EmptySpace pref="153" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -279,7 +279,7 @@
             <Container class="javax.swing.JPanel" name="pnlBanHang">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -331,7 +331,7 @@
             <Container class="javax.swing.JPanel" name="pnlHangHoa">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -383,7 +383,7 @@
             <Container class="javax.swing.JPanel" name="pnlSanPham">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -435,7 +435,7 @@
             <Container class="javax.swing.JPanel" name="pnlNhapHang">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -487,7 +487,7 @@
             <Container class="javax.swing.JPanel" name="pnlNhanVien">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -539,7 +539,7 @@
             <Container class="javax.swing.JPanel" name="pnlTaiKhoan">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -591,7 +591,7 @@
             <Container class="javax.swing.JPanel" name="pnlThongKe">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -643,7 +643,7 @@
             <Container class="javax.swing.JPanel" name="pnlHoaDon">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="cc" type="rgb"/>
+                  <Color blue="b5" green="51" red="72" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -697,12 +697,12 @@
         <Container class="javax.swing.JPanel" name="pnlFunction">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="cc" type="rgb"/>
+              <Color blue="e0" green="9e" red="c1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder roundedCorners="true" thickness="10">
-                  <Color PropertyName="color" blue="ff" green="99" red="cc" type="rgb"/>
+                <LineBorder thickness="10">
+                  <Color PropertyName="color" blue="8e" green="54" red="5e" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -711,7 +711,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="931" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="955" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

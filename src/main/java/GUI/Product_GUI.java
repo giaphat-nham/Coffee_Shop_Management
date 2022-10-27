@@ -61,7 +61,7 @@ public class Product_GUI extends javax.swing.JPanel {
         scrProductRecipeConfig = new javax.swing.JScrollPane();
         tblProductRecipeConfig = new javax.swing.JTable();
 
-        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(94, 84, 142));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(951, 676));
 
@@ -69,9 +69,8 @@ public class Product_GUI extends javax.swing.JPanel {
         scrProductList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
         scrProductList.setForeground(new java.awt.Color(255, 255, 255));
 
-        tblProductList.setBackground(new java.awt.Color(255, 255, 255));
         tblProductList.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        tblProductList.setForeground(new java.awt.Color(153, 102, 255));
+        tblProductList.setForeground(new java.awt.Color(94, 84, 142));
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"SP001", "Trà sữa trân châu"},
@@ -92,50 +91,49 @@ public class Product_GUI extends javax.swing.JPanel {
         pnlProductDetails.setForeground(new java.awt.Color(153, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel1.setForeground(new java.awt.Color(94, 84, 142));
         jLabel1.setText("Chi tiết sản phẩm:");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel2.setForeground(new java.awt.Color(94, 84, 142));
         jLabel2.setText("Mã sản phẩm:");
 
         lblProductID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblProductID.setForeground(new java.awt.Color(153, 102, 255));
+        lblProductID.setForeground(new java.awt.Color(94, 84, 142));
         lblProductID.setText("SP001");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel3.setForeground(new java.awt.Color(94, 84, 142));
         jLabel3.setText("Tên sản phẩm:");
 
         lblProductName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblProductName.setForeground(new java.awt.Color(153, 102, 255));
+        lblProductName.setForeground(new java.awt.Color(94, 84, 142));
         lblProductName.setText("Trà sữa trân châu");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel4.setForeground(new java.awt.Color(94, 84, 142));
         jLabel4.setText("Giá bán:");
 
         lblProductPrice.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblProductPrice.setForeground(new java.awt.Color(153, 102, 255));
+        lblProductPrice.setForeground(new java.awt.Color(94, 84, 142));
         lblProductPrice.setText("20000");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel5.setForeground(new java.awt.Color(94, 84, 142));
         jLabel5.setText("Loại sản phẩm:");
 
         lblProductType.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblProductType.setForeground(new java.awt.Color(153, 102, 255));
+        lblProductType.setForeground(new java.awt.Color(94, 84, 142));
         lblProductType.setText("Trà sữa");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel6.setForeground(new java.awt.Color(94, 84, 142));
         jLabel6.setText("Công thức:");
 
         scrProductRecipe.setBackground(new java.awt.Color(255, 255, 255));
 
-        tblProductRecipe.setBackground(new java.awt.Color(255, 255, 255));
         tblProductRecipe.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        tblProductRecipe.setForeground(new java.awt.Color(153, 102, 255));
+        tblProductRecipe.setForeground(new java.awt.Color(94, 84, 142));
         tblProductRecipe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Trà túi lọc", "Túi", "1"},
@@ -210,30 +208,25 @@ public class Product_GUI extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrProductRecipe, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(scrProductRecipe, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        cbbSearchFilter.setBackground(new java.awt.Color(255, 255, 255));
         cbbSearchFilter.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        cbbSearchFilter.setForeground(new java.awt.Color(153, 102, 255));
+        cbbSearchFilter.setForeground(new java.awt.Color(94, 84, 142));
         cbbSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã sản phẩm", "Tên sản phẩm", "Loại sản phẩm" }));
 
-        txtSearch.setBackground(new java.awt.Color(255, 255, 255));
         txtSearch.setForeground(new java.awt.Color(153, 102, 255));
         txtSearch.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-        txtSearch.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         txtSearch.setSelectionColor(new java.awt.Color(204, 153, 255));
 
-        btnSearch.setBackground(new java.awt.Color(255, 255, 255));
         btnSearch.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnSearch.setForeground(new java.awt.Color(153, 102, 255));
+        btnSearch.setForeground(new java.awt.Color(94, 84, 142));
         btnSearch.setText("Tìm kiếm");
         btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
 
-        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
         btnAdd.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(153, 102, 255));
+        btnAdd.setForeground(new java.awt.Color(94, 84, 142));
         btnAdd.setText("Thêm sản phẩm");
         btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
         btnAdd.setMaximumSize(new java.awt.Dimension(91, 32));
@@ -244,9 +237,8 @@ public class Product_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(153, 102, 255));
+        btnDelete.setForeground(new java.awt.Color(94, 84, 142));
         btnDelete.setText("Xóa sản phẩm");
         btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
         btnDelete.setMaximumSize(new java.awt.Dimension(81, 32));
@@ -257,9 +249,8 @@ public class Product_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(153, 102, 255));
+        btnUpdate.setForeground(new java.awt.Color(94, 84, 142));
         btnUpdate.setText("Cập nhật sản phẩm");
         btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
         btnUpdate.setMaximumSize(new java.awt.Dimension(109, 32));
@@ -269,45 +260,40 @@ public class Product_GUI extends javax.swing.JPanel {
         pnlProductConfiguration.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel7.setForeground(new java.awt.Color(94, 84, 142));
         jLabel7.setText("Chỉnh sửa danh sách sản phẩm:");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel8.setForeground(new java.awt.Color(94, 84, 142));
         jLabel8.setText("Mã sản phẩm:");
 
-        txtProductID.setBackground(new java.awt.Color(255, 255, 255));
         txtProductID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtProductID.setForeground(new java.awt.Color(153, 102, 255));
-        txtProductID.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
+        txtProductID.setForeground(new java.awt.Color(94, 84, 142));
+        txtProductID.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel9.setForeground(new java.awt.Color(94, 84, 142));
         jLabel9.setText("Tên sản phẩm:");
 
-        txtProductName.setBackground(new java.awt.Color(255, 255, 255));
         txtProductName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtProductName.setForeground(new java.awt.Color(153, 102, 255));
-        txtProductName.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
+        txtProductName.setForeground(new java.awt.Color(94, 84, 142));
+        txtProductName.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel10.setForeground(new java.awt.Color(94, 84, 142));
         jLabel10.setText("Giá bán:");
 
-        txtProductPrice.setBackground(new java.awt.Color(255, 255, 255));
         txtProductPrice.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtProductPrice.setForeground(new java.awt.Color(153, 102, 255));
-        txtProductPrice.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
+        txtProductPrice.setForeground(new java.awt.Color(94, 84, 142));
+        txtProductPrice.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(153, 102, 255));
+        jLabel11.setForeground(new java.awt.Color(94, 84, 142));
         jLabel11.setText("Loại sản phẩm:");
 
-        cbbProductType.setBackground(new java.awt.Color(255, 255, 255));
-        cbbProductType.setForeground(new java.awt.Color(153, 102, 255));
-        cbbProductType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 153, 255)));
+        cbbProductType.setForeground(new java.awt.Color(94, 84, 142));
+        cbbProductType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)));
 
-        tblProductRecipeConfig.setBackground(new java.awt.Color(255, 255, 255));
         tblProductRecipeConfig.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         tblProductRecipeConfig.setForeground(new java.awt.Color(153, 102, 255));
         tblProductRecipeConfig.setModel(new javax.swing.table.DefaultTableModel(
@@ -405,7 +391,7 @@ public class Product_GUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
