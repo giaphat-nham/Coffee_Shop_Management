@@ -56,6 +56,8 @@ public class Staff_GUI extends javax.swing.JPanel {
         lblWorkingHours = new javax.swing.JLabel();
         lblFeildManagement = new javax.swing.JLabel();
         lblSalaryFactor = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        lblHourlyWage = new javax.swing.JLabel();
         cbbSearchFilter = new javax.swing.JComboBox<>();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
@@ -84,6 +86,8 @@ public class Staff_GUI extends javax.swing.JPanel {
         rdService = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
         rdManager = new javax.swing.JRadioButton();
+        jLabel30 = new javax.swing.JLabel();
+        txtHourlyWage = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
@@ -154,7 +158,7 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel25.setText("Lương cơ bản:");
+        jLabel25.setText("Lương cơ sở:");
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(94, 84, 142));
@@ -172,38 +176,57 @@ public class Staff_GUI extends javax.swing.JPanel {
         jLabel29.setForeground(new java.awt.Color(94, 84, 142));
         jLabel29.setText("Hệ số lương:");
 
+        lblStaffID.setBackground(new java.awt.Color(94, 84, 142));
         lblStaffID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblStaffID.setText("S0001");
 
+        lblStaffName.setBackground(new java.awt.Color(94, 84, 142));
         lblStaffName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblStaffName.setText("Josie Le");
 
+        lblYearOfBirth.setBackground(new java.awt.Color(94, 84, 142));
         lblYearOfBirth.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblYearOfBirth.setText("2002");
 
+        lblAddress.setBackground(new java.awt.Color(94, 84, 142));
         lblAddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblAddress.setText("Ho Chi Minh City");
 
+        lblGender.setBackground(new java.awt.Color(94, 84, 142));
         lblGender.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblGender.setText("Nữ");
 
+        lblPhone.setBackground(new java.awt.Color(94, 84, 142));
         lblPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPhone.setText("0123456789");
 
+        lblBaseSalary.setBackground(new java.awt.Color(94, 84, 142));
         lblBaseSalary.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblBaseSalary.setText("jLabel32");
+        lblBaseSalary.setText("5000000");
 
+        lblStaffType.setBackground(new java.awt.Color(94, 84, 142));
         lblStaffType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblStaffType.setText("jLabel33");
+        lblStaffType.setText("Quản lý");
 
+        lblWorkingHours.setBackground(new java.awt.Color(94, 84, 142));
         lblWorkingHours.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblWorkingHours.setText("jLabel34");
+        lblWorkingHours.setText("20");
 
+        lblFeildManagement.setBackground(new java.awt.Color(94, 84, 142));
         lblFeildManagement.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblFeildManagement.setText("jLabel35");
+        lblFeildManagement.setText("Nhân viên");
 
+        lblSalaryFactor.setBackground(new java.awt.Color(94, 84, 142));
         lblSalaryFactor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblSalaryFactor.setText("jLabel36");
+        lblSalaryFactor.setText("3.0");
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(94, 84, 142));
+        jLabel31.setText("Lương theo giờ:");
+
+        lblHourlyWage.setBackground(new java.awt.Color(94, 84, 142));
+        lblHourlyWage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblHourlyWage.setText("jLabel34");
 
         javax.swing.GroupLayout pnlProductDetailsLayout = new javax.swing.GroupLayout(pnlProductDetails);
         pnlProductDetails.setLayout(pnlProductDetailsLayout);
@@ -214,34 +237,46 @@ public class Staff_GUI extends javax.swing.JPanel {
                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlProductDetailsLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(9, 9, 9)
                         .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel27)
+                            .addGroup(pnlProductDetailsLayout.createSequentialGroup()
                                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25)
                                     .addComponent(jLabel26)
                                     .addComponent(jLabel24)
                                     .addComponent(jLabel23)
                                     .addComponent(jLabel22)
                                     .addComponent(jLabel21)
                                     .addComponent(jLabel12)
-                                    .addComponent(jLabel11)))
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel29))
-                        .addGap(22, 22, 22)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblStaffID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblStaffName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblYearOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                            .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblBaseSalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblStaffType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblWorkingHours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblFeildManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblSalaryFactor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel25))
+                                .addGap(27, 27, 27)
+                                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblStaffID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblStaffName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblYearOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                                    .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblBaseSalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblStaffType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(pnlProductDetailsLayout.createSequentialGroup()
+                                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlProductDetailsLayout.createSequentialGroup()
+                                        .addComponent(jLabel31)
+                                        .addGap(23, 23, 23))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductDetailsLayout.createSequentialGroup()
+                                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel29)
+                                            .addComponent(jLabel28))
+                                        .addGap(18, 18, 18)))
+                                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFeildManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblSalaryFactor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblHourlyWage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(pnlProductDetailsLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addGap(23, 23, 23)
+                                .addComponent(lblWorkingHours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         pnlProductDetailsLayout.setVerticalGroup(
@@ -279,13 +314,18 @@ public class Staff_GUI extends javax.swing.JPanel {
                         .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel25)
                             .addComponent(lblBaseSalary))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel26))
-                    .addComponent(lblStaffType))
+                        .addGap(37, 37, 37))
+                    .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblStaffType)
+                        .addComponent(jLabel26)))
                 .addGap(18, 18, 18)
                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(lblWorkingHours))
+                .addGap(14, 14, 14)
+                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(lblHourlyWage))
                 .addGap(18, 18, 18)
                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
@@ -366,7 +406,7 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel16.setText("Lương cơ bản:");
+        jLabel16.setText("Lương cơ sở:");
 
         txtBaseSalary.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtBaseSalary.setForeground(new java.awt.Color(94, 84, 142));
@@ -414,6 +454,14 @@ public class Staff_GUI extends javax.swing.JPanel {
         rdManager.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rdManager.setForeground(new java.awt.Color(94, 84, 142));
         rdManager.setText("Quản lý");
+
+        jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(94, 84, 142));
+        jLabel30.setText("Lương theo giờ:");
+
+        txtHourlyWage.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtHourlyWage.setForeground(new java.awt.Color(94, 84, 142));
+        txtHourlyWage.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
         javax.swing.GroupLayout pnlProductConfigurationLayout = new javax.swing.GroupLayout(pnlProductConfiguration);
         pnlProductConfiguration.setLayout(pnlProductConfigurationLayout);
@@ -474,7 +522,11 @@ public class Staff_GUI extends javax.swing.JPanel {
                                         .addComponent(rdService)
                                         .addGap(72, 72, 72)
                                         .addComponent(rdManager))
-                                    .addComponent(txtBaseSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtBaseSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtHourlyWage, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         pnlProductConfigurationLayout.setVerticalGroup(
@@ -519,6 +571,10 @@ public class Staff_GUI extends javax.swing.JPanel {
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(txtWorkingHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(txtHourlyWage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
@@ -592,8 +648,7 @@ public class Staff_GUI extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlProductDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbbSearchFilter)
@@ -603,12 +658,14 @@ public class Staff_GUI extends javax.swing.JPanel {
                         .addComponent(scrStaffList, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pnlProductConfiguration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(11, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pnlProductDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -667,6 +724,8 @@ public class Staff_GUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -676,6 +735,7 @@ public class Staff_GUI extends javax.swing.JPanel {
     private javax.swing.JLabel lblBaseSalary;
     private javax.swing.JLabel lblFeildManagement;
     private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblHourlyWage;
     private javax.swing.JLabel lblPhone;
     private javax.swing.JLabel lblSalaryFactor;
     private javax.swing.JLabel lblStaffID;
@@ -693,6 +753,7 @@ public class Staff_GUI extends javax.swing.JPanel {
     private javax.swing.JTextField txtBaseSalary;
     private javax.swing.JTextField txtFeildManagement;
     private javax.swing.JTextField txtGender;
+    private javax.swing.JTextField txtHourlyWage;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtSalaryFactor;
     private javax.swing.JTextField txtSearch;

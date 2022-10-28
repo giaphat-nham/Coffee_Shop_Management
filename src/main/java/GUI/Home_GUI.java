@@ -509,14 +509,17 @@ public class Home_GUI extends javax.swing.JFrame {
 
     private void pnlNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhapHangMouseClicked
         activePanel(pnlNhapHang);
+        openFunctionPanel(new Received_GUI());
     }//GEN-LAST:event_pnlNhapHangMouseClicked
 
     private void pnlNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMouseClicked
         activePanel(pnlNhanVien);
+        openFunctionPanel(new Staff_GUI());
     }//GEN-LAST:event_pnlNhanVienMouseClicked
 
     private void pnlTaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTaiKhoanMouseClicked
         activePanel(pnlTaiKhoan);
+        openFunctionPanel(new Account_GUI());
     }//GEN-LAST:event_pnlTaiKhoanMouseClicked
 
     private void pnlThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlThongKeMouseClicked
