@@ -11,5 +11,6 @@ package GUI;
 public class TestingClass {
     public static void main(String[] args) {
         System.out.println("This is a test for git stash");
+        System.out.println("This line of code is added by Phat");
     }
 }
