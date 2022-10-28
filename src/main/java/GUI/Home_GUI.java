@@ -18,7 +18,6 @@ public class Home_GUI extends javax.swing.JFrame {
     /**
      * Creates new form Home_GUI
      */
-    
     public Home_GUI() {
         initComponents();
     }
@@ -93,6 +92,11 @@ public class Home_GUI extends javax.swing.JFrame {
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusPainted(false);
         jButton1.setFocusable(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -409,7 +413,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addComponent(pnlThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pnlFunction.setBackground(new java.awt.Color(193, 158, 224));
@@ -419,7 +423,7 @@ public class Home_GUI extends javax.swing.JFrame {
         pnlFunction.setLayout(pnlFunctionLayout);
         pnlFunctionLayout.setHorizontalGroup(
             pnlFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
+            .addGap(0, 931, Short.MAX_VALUE)
         );
         pnlFunctionLayout.setVerticalGroup(
             pnlFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -472,20 +476,20 @@ public class Home_GUI extends javax.swing.JFrame {
 
     private void disablePanel() {
         if (selectedFunction != null) {
-            selectedFunction.setBackground(new Color(114,81,181));
-            selectedFunction.setBorder(new LineBorder(new Color(255,255,255),1,false));
-            selectedFunction.getComponent(0).setForeground(new Color(255,255,255));
+            selectedFunction.setBackground(new Color(114, 81, 181));
+            selectedFunction.setBorder(new LineBorder(new Color(255, 255, 255), 1, false));
+            selectedFunction.getComponent(0).setForeground(new Color(255, 255, 255));
         }
     }
-    
-    private void activePanel(JPanel panel){
+
+    private void activePanel(JPanel panel) {
         disablePanel();
         selectedFunction = panel;
-        selectedFunction.setBackground(new Color(255,255,255));
-        selectedFunction.getComponent(0).setForeground(new Color(114,81,181));
-        selectedFunction.setBorder(new LineBorder(new Color(114,81,181),1,false));
+        selectedFunction.setBackground(new Color(255, 255, 255));
+        selectedFunction.getComponent(0).setForeground(new Color(114, 81, 181));
+        selectedFunction.setBorder(new LineBorder(new Color(114, 81, 181), 1, false));
     }
-    
+
     private void openFunctionPanel(JPanel panel) {
         pnlFunction.removeAll();
         pnlFunction.setLayout(new BorderLayout());
@@ -493,7 +497,7 @@ public class Home_GUI extends javax.swing.JFrame {
         pnlFunction.repaint();
         pnlFunction.revalidate();
     }
-    
+
     private void pnlSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlSanPhamMouseClicked
         activePanel(pnlSanPham);
         openFunctionPanel(new Product_GUI());
@@ -529,6 +533,11 @@ public class Home_GUI extends javax.swing.JFrame {
     private void pnlHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlHoaDonMouseClicked
         activePanel(pnlHoaDon);
     }//GEN-LAST:event_pnlHoaDonMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        this.dispose();
+        new Login_GUI().setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
