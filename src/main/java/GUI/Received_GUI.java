@@ -32,12 +32,12 @@ public class Received_GUI extends javax.swing.JPanel {
         pnlReceivedNoteDetails = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblProductID = new javax.swing.JLabel();
+        lblReceiveNoteID = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblProductName = new javax.swing.JLabel();
+        lblStaffID = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        scrProductRecipe = new javax.swing.JScrollPane();
-        tblProductRecipe = new javax.swing.JTable();
+        scrGoodList = new javax.swing.JScrollPane();
+        tblGoodList = new javax.swing.JTable();
         cbbSearchFilter = new javax.swing.JComboBox<>();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
@@ -50,8 +50,8 @@ public class Received_GUI extends javax.swing.JPanel {
         txtReceiveNoteID = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtStaffID = new javax.swing.JTextField();
-        scrProductRecipeConfig = new javax.swing.JScrollPane();
-        tblProductRecipeConfig = new javax.swing.JTable();
+        scrGoodListConfig = new javax.swing.JScrollPane();
+        tblGoodListConfig = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(94, 84, 142));
@@ -91,27 +91,27 @@ public class Received_GUI extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(94, 84, 142));
         jLabel2.setText("Mã phiếu nhập:");
 
-        lblProductID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblProductID.setForeground(new java.awt.Color(94, 84, 142));
-        lblProductID.setText("RN0001");
+        lblReceiveNoteID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblReceiveNoteID.setForeground(new java.awt.Color(94, 84, 142));
+        lblReceiveNoteID.setText("RN0001");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(94, 84, 142));
         jLabel3.setText("Mã nhân viên:");
 
-        lblProductName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblProductName.setForeground(new java.awt.Color(94, 84, 142));
-        lblProductName.setText("S0001");
+        lblStaffID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblStaffID.setForeground(new java.awt.Color(94, 84, 142));
+        lblStaffID.setText("S0001");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(94, 84, 142));
         jLabel6.setText("Hàng hóa:");
 
-        scrProductRecipe.setBackground(new java.awt.Color(255, 255, 255));
+        scrGoodList.setBackground(new java.awt.Color(255, 255, 255));
 
-        tblProductRecipe.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        tblProductRecipe.setForeground(new java.awt.Color(94, 84, 142));
-        tblProductRecipe.setModel(new javax.swing.table.DefaultTableModel(
+        tblGoodList.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        tblGoodList.setForeground(new java.awt.Color(94, 84, 142));
+        tblGoodList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Trà túi lọc", "Túi", "1", null, null},
                 {"Sữa lùn", "ml", "50", null, null},
@@ -131,10 +131,10 @@ public class Received_GUI extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblProductRecipe.setGridColor(new java.awt.Color(204, 153, 255));
-        tblProductRecipe.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        tblProductRecipe.setSelectionForeground(new java.awt.Color(204, 153, 255));
-        scrProductRecipe.setViewportView(tblProductRecipe);
+        tblGoodList.setGridColor(new java.awt.Color(204, 153, 255));
+        tblGoodList.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblGoodList.setSelectionForeground(new java.awt.Color(204, 153, 255));
+        scrGoodList.setViewportView(tblGoodList);
 
         javax.swing.GroupLayout pnlReceivedNoteDetailsLayout = new javax.swing.GroupLayout(pnlReceivedNoteDetails);
         pnlReceivedNoteDetails.setLayout(pnlReceivedNoteDetailsLayout);
@@ -144,18 +144,18 @@ public class Received_GUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrProductRecipe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scrGoodList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addComponent(lblProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblReceiveNoteID, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -169,15 +169,15 @@ public class Received_GUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(lblProductID))
+                    .addComponent(lblReceiveNoteID))
                 .addGap(18, 18, 18)
                 .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lblProductName))
+                    .addComponent(lblStaffID))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrProductRecipe)
+                .addComponent(scrGoodList)
                 .addContainerGap())
         );
 
@@ -248,9 +248,9 @@ public class Received_GUI extends javax.swing.JPanel {
         txtStaffID.setForeground(new java.awt.Color(94, 84, 142));
         txtStaffID.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
-        tblProductRecipeConfig.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        tblProductRecipeConfig.setForeground(new java.awt.Color(153, 102, 255));
-        tblProductRecipeConfig.setModel(new javax.swing.table.DefaultTableModel(
+        tblGoodListConfig.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        tblGoodListConfig.setForeground(new java.awt.Color(153, 102, 255));
+        tblGoodListConfig.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -261,10 +261,10 @@ public class Received_GUI extends javax.swing.JPanel {
                 "Mã hàng hóa", "Tên hàng hóa", "Số lượng", "Giá", "Đơn vị"
             }
         ));
-        tblProductRecipeConfig.setGridColor(new java.awt.Color(204, 153, 255));
-        tblProductRecipeConfig.setSelectionBackground(new java.awt.Color(204, 153, 255));
-        tblProductRecipeConfig.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        scrProductRecipeConfig.setViewportView(tblProductRecipeConfig);
+        tblGoodListConfig.setGridColor(new java.awt.Color(204, 153, 255));
+        tblGoodListConfig.setSelectionBackground(new java.awt.Color(204, 153, 255));
+        tblGoodListConfig.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        scrGoodListConfig.setViewportView(tblGoodListConfig);
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(94, 84, 142));
@@ -288,7 +288,7 @@ public class Received_GUI extends javax.swing.JPanel {
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtReceiveNoteID, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(scrProductRecipeConfig, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(scrGoodListConfig, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
                         .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -314,7 +314,7 @@ public class Received_GUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrProductRecipeConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addComponent(scrGoodListConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -407,15 +407,15 @@ public class Received_GUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblProductID;
-    private javax.swing.JLabel lblProductName;
+    private javax.swing.JLabel lblReceiveNoteID;
+    private javax.swing.JLabel lblStaffID;
     private javax.swing.JPanel pnlProductConfiguration;
     private javax.swing.JPanel pnlReceivedNoteDetails;
-    private javax.swing.JScrollPane scrProductRecipe;
-    private javax.swing.JScrollPane scrProductRecipeConfig;
+    private javax.swing.JScrollPane scrGoodList;
+    private javax.swing.JScrollPane scrGoodListConfig;
     private javax.swing.JScrollPane scrReceivedNoteList;
-    private javax.swing.JTable tblProductRecipe;
-    private javax.swing.JTable tblProductRecipeConfig;
+    private javax.swing.JTable tblGoodList;
+    private javax.swing.JTable tblGoodListConfig;
     private javax.swing.JTable tblReceivedNoteList;
     private javax.swing.JTextField txtReceiveNoteID;
     private javax.swing.JTextField txtSearch;

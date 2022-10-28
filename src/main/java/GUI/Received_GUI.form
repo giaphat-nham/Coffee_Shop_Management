@@ -195,19 +195,19 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="scrProductRecipe" alignment="1" pref="0" max="32767" attributes="0"/>
+                          <Component id="scrGoodList" alignment="1" pref="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="36" max="32767" attributes="0"/>
-                                      <Component id="lblProductID" min="-2" pref="199" max="-2" attributes="0"/>
+                                      <Component id="lblReceiveNoteID" min="-2" pref="199" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="lblProductName" min="-2" pref="199" max="-2" attributes="0"/>
+                                      <Component id="lblStaffID" min="-2" pref="199" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -228,17 +228,17 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblProductID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblReceiveNoteID" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblProductName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStaffID" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrProductRecipe" max="32767" attributes="0"/>
+                      <Component id="scrGoodList" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -267,7 +267,7 @@
                 <Property name="text" type="java.lang.String" value="M&#xe3; phi&#x1ebf;u nh&#x1ead;p:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblProductID">
+            <Component class="javax.swing.JLabel" name="lblReceiveNoteID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
@@ -289,7 +289,7 @@
                 <Property name="text" type="java.lang.String" value="M&#xe3; nh&#xe2;n vi&#xea;n:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblProductName">
+            <Component class="javax.swing.JLabel" name="lblStaffID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
@@ -311,7 +311,7 @@
                 <Property name="text" type="java.lang.String" value="H&#xe0;ng h&#xf3;a:"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="scrProductRecipe">
+            <Container class="javax.swing.JScrollPane" name="scrGoodList">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -320,7 +320,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblProductRecipe">
+                <Component class="javax.swing.JTable" name="tblGoodList">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="0"/>
@@ -572,7 +572,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="scrProductRecipeConfig" alignment="1" max="32767" attributes="0"/>
+                          <Component id="scrGoodListConfig" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -606,7 +606,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrProductRecipeConfig" pref="302" max="32767" attributes="0"/>
+                      <Component id="scrGoodListConfig" pref="302" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -694,11 +694,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="scrProductRecipeConfig">
+            <Container class="javax.swing.JScrollPane" name="scrGoodListConfig">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblProductRecipeConfig">
+                <Component class="javax.swing.JTable" name="tblGoodListConfig">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="0"/>
