@@ -20,6 +20,7 @@ public class Home_GUI extends javax.swing.JFrame {
      */
     public Home_GUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
