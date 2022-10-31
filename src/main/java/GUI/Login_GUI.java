@@ -4,15 +4,17 @@
  */
 package GUI;
 
+import BUS.Account_BUS;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DLCH
  */
 public class Login_GUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login_GUI
-     */
+    Account_BUS accountBUS = new Account_BUS();
+    
     public Login_GUI() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -67,6 +69,11 @@ public class Login_GUI extends javax.swing.JFrame {
         btnLoginConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnLoginConfirm.setText("Đăng nhập");
         btnLoginConfirm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnLoginConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginConfirmActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
@@ -84,7 +91,7 @@ public class Login_GUI extends javax.swing.JFrame {
                     .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtLoginUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                         .addComponent(txtLoginPassword)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,6 +126,22 @@ public class Login_GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginConfirmActionPerformed
+        if (txtLoginUsername.getText().equals("")||String.valueOf(txtLoginPassword.getPassword()).equals("")) {
+            JOptionPane.showMessageDialog(this, "Không được để trống thông tin đăng nhập!");
+        }
+        else if (!accountBUS.usernameIsValid(txtLoginUsername.getText())) {
+            JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại!");
+        }
+        else if (!accountBUS.passwordIsValid(txtLoginUsername.getText(), String.valueOf(txtLoginPassword.getPassword()))) {
+            JOptionPane.showMessageDialog(this, "Sai mật khẩu!");
+        }
+        else {
+            this.dispose();
+            new Home_GUI().setVisible(true);
+        }
+    }//GEN-LAST:event_btnLoginConfirmActionPerformed
 
     /**
      * @param args the command line arguments
