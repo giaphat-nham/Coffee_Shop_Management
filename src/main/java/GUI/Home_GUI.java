@@ -20,6 +20,7 @@ public class Home_GUI extends javax.swing.JFrame {
      */
     public Home_GUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,7 +38,7 @@ public class Home_GUI extends javax.swing.JFrame {
         lblLoginSessionUsernameDisplay = new javax.swing.JLabel();
         lblLoginSessionDateTime = new javax.swing.JLabel();
         lblLoginSessionDateTimeDisplay = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnDangXuat = new Custom.CustomButton();
         pnlMenu = new javax.swing.JPanel();
         pnlBanHang = new javax.swing.JPanel();
         lblBanHang = new javax.swing.JLabel();
@@ -84,17 +85,11 @@ public class Home_GUI extends javax.swing.JFrame {
         lblLoginSessionDateTimeDisplay.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblLoginSessionDateTimeDisplay.setText("jLabel2");
 
-        jButton1.setBackground(new java.awt.Color(114, 81, 181));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Đăng xuất");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusPainted(false);
-        jButton1.setFocusable(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        btnDangXuat.setText("Đăng xuất");
+        btnDangXuat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangXuatActionPerformed(evt);
             }
         });
 
@@ -115,7 +110,7 @@ public class Home_GUI extends javax.swing.JFrame {
                             .addComponent(lblLoginSessionUsernameDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -129,9 +124,8 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLoginSessionDateTime)
                     .addComponent(lblLoginSessionDateTimeDisplay))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pnlMenu.setBackground(new java.awt.Color(193, 158, 224));
@@ -413,7 +407,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addComponent(pnlThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pnlFunction.setBackground(new java.awt.Color(193, 158, 224));
@@ -423,7 +417,7 @@ public class Home_GUI extends javax.swing.JFrame {
         pnlFunction.setLayout(pnlFunctionLayout);
         pnlFunctionLayout.setHorizontalGroup(
             pnlFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 931, Short.MAX_VALUE)
+            .addGap(0, 955, Short.MAX_VALUE)
         );
         pnlFunctionLayout.setVerticalGroup(
             pnlFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -534,10 +528,10 @@ public class Home_GUI extends javax.swing.JFrame {
         activePanel(pnlHoaDon);
     }//GEN-LAST:event_pnlHoaDonMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
         this.dispose();
         new Login_GUI().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnDangXuatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,7 +570,7 @@ public class Home_GUI extends javax.swing.JFrame {
 
     private JPanel selectedFunction;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private Custom.CustomButton btnDangXuat;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblBanHang;
