@@ -9,14 +9,19 @@ package DTO;
  * @author DLCH
  */
 public class Account_DTO {
-    String username, password, staffID;
+    String username, password;
+    int staffID;
     boolean isAdmin;
 
-    public Account_DTO(String username, String password, String staffID, boolean isAdmin) {
+    public Account_DTO(String username, String password, int staffID, boolean isAdmin) {
         this.username = username;
         this.password = password;
         this.staffID = staffID;
         this.isAdmin = isAdmin;
+    }
+    
+    public Account_DTO() {
+        
     }
 
     public String getUsername() {
@@ -35,11 +40,11 @@ public class Account_DTO {
         this.password = password;
     }
 
-    public String getStaffID() {
+    public int getStaffID() {
         return staffID;
     }
 
-    public void setStaffID(String staffID) {
+    public void setStaffID(int staffID) {
         this.staffID = staffID;
     }
 

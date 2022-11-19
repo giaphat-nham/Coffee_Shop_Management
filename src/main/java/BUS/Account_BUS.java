@@ -26,4 +26,8 @@ public class Account_BUS {
     public boolean passwordIsValid (String username, String password) {
         return accountDAO.passwordIsValid(username,password);
     }
+    
+    public Account_DTO getAccount(String username) {
+        return accountDAO.getAccount(username);
+    }
 }

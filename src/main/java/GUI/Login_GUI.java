@@ -138,8 +138,8 @@ public class Login_GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Sai mật khẩu!");
         }
         else {
+            new Home_GUI(accountBUS.getAccount(txtLoginUsername.getText())).setVisible(true);
             this.dispose();
-            new Home_GUI().setVisible(true);
         }
     }//GEN-LAST:event_btnLoginConfirmActionPerformed
 
