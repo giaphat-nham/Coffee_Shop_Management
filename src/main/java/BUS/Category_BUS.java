@@ -17,4 +17,12 @@ public class Category_BUS {
     public ArrayList<String> list() {
         return dao.list();
     }
+    
+    public boolean insert(String cateName) {
+        return dao.insert(cateName);
+    }
+    
+    public boolean delete(String cateName) {
+        return dao.delete(cateName);
+    }
 }

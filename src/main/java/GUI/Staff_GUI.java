@@ -4,17 +4,27 @@
  */
 package GUI;
 
+import BUS.Staff_BUS;
+import DTO.Staff_DTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Josie
  */
 public class Staff_GUI extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Staff_GUI
-     */
+    private Staff_BUS staffBUS = new Staff_BUS();
+    private ArrayList<Staff_DTO> listStaff = new ArrayList();
+    private ArrayList<Staff_DTO> listSearch = new ArrayList();
+    int selectedStaff = 0;
+
     public Staff_GUI() {
         initComponents();
+        listStaff = staffBUS.list();
+        loadList(listStaff);
     }
 
     /**
@@ -29,6 +39,7 @@ public class Staff_GUI extends javax.swing.JPanel {
         jMenuItem1 = new javax.swing.JMenuItem();
         jLabel3 = new javax.swing.JLabel();
         btnGroupStaffType = new javax.swing.ButtonGroup();
+        btnGroupStaffGender = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         scrStaffList = new javax.swing.JScrollPane();
         tblStaffList = new javax.swing.JTable();
@@ -37,60 +48,41 @@ public class Staff_GUI extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
         lblStaffID = new javax.swing.JLabel();
         lblStaffName = new javax.swing.JLabel();
         lblYearOfBirth = new javax.swing.JLabel();
-        lblAddress = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
         lblPhone = new javax.swing.JLabel();
-        lblBaseSalary = new javax.swing.JLabel();
+        lblSalary = new javax.swing.JLabel();
         lblStaffType = new javax.swing.JLabel();
-        lblWorkingHours = new javax.swing.JLabel();
-        lblFeildManagement = new javax.swing.JLabel();
-        lblSalaryFactor = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        lblHourlyWage = new javax.swing.JLabel();
         cbbSearchFilter = new javax.swing.JComboBox<>();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         pnlProductConfiguration = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtStaffID = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtStaffName = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtYearOfBirth = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        txtGender = new javax.swing.JTextField();
+        txtYoB = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtBaseSalary = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        txtWorkingHours = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        txtFeildManagement = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        txtSalaryFactor = new javax.swing.JTextField();
-        rdService = new javax.swing.JRadioButton();
+        txtSalary = new javax.swing.JTextField();
+        rdPhucVu = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
-        rdManager = new javax.swing.JRadioButton();
-        jLabel30 = new javax.swing.JLabel();
-        txtHourlyWage = new javax.swing.JTextField();
+        rdQuanLy = new javax.swing.JRadioButton();
+        rdNam = new javax.swing.JRadioButton();
+        rdNu = new javax.swing.JRadioButton();
+        rdPhaChe = new javax.swing.JRadioButton();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -110,11 +102,7 @@ public class Staff_GUI extends javax.swing.JPanel {
         tblStaffList.setForeground(new java.awt.Color(94, 84, 142));
         tblStaffList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"S0001", "Josie"},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Mã nhân viên", "Tên nhân viên"
@@ -123,6 +111,11 @@ public class Staff_GUI extends javax.swing.JPanel {
         tblStaffList.setGridColor(new java.awt.Color(204, 153, 255));
         tblStaffList.setSelectionBackground(new java.awt.Color(204, 153, 255));
         tblStaffList.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblStaffList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblStaffListMouseClicked(evt);
+            }
+        });
         scrStaffList.setViewportView(tblStaffList);
 
         pnlProductDetails.setBackground(new java.awt.Color(255, 255, 255));
@@ -144,10 +137,6 @@ public class Staff_GUI extends javax.swing.JPanel {
         jLabel21.setForeground(new java.awt.Color(94, 84, 142));
         jLabel21.setText("Năm sinh:");
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel22.setText("Địa chỉ:");
-
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(94, 84, 142));
         jLabel23.setText("Giới tính:");
@@ -158,75 +147,32 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel25.setText("Lương cơ sở:");
+        jLabel25.setText("Lương:");
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(94, 84, 142));
         jLabel26.setText("Loại nhân viên:");
 
-        jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel27.setText("Số giờ làm việc:");
-
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel28.setText("Bộ phận quản lý:");
-
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel29.setText("Hệ số lương:");
-
         lblStaffID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblStaffID.setForeground(new java.awt.Color(94, 84, 142));
-        lblStaffID.setText("S0001");
 
         lblStaffName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblStaffName.setForeground(new java.awt.Color(94, 84, 142));
-        lblStaffName.setText("Josie Le");
 
         lblYearOfBirth.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblYearOfBirth.setForeground(new java.awt.Color(94, 84, 142));
-        lblYearOfBirth.setText("2002");
-
-        lblAddress.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblAddress.setForeground(new java.awt.Color(94, 84, 142));
-        lblAddress.setText("Ho Chi Minh City");
 
         lblGender.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblGender.setForeground(new java.awt.Color(94, 84, 142));
-        lblGender.setText("Nữ");
 
         lblPhone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblPhone.setForeground(new java.awt.Color(94, 84, 142));
-        lblPhone.setText("0123456789");
 
-        lblBaseSalary.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblBaseSalary.setForeground(new java.awt.Color(94, 84, 142));
-        lblBaseSalary.setText("5000000");
+        lblSalary.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblSalary.setForeground(new java.awt.Color(94, 84, 142));
 
         lblStaffType.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblStaffType.setForeground(new java.awt.Color(94, 84, 142));
-        lblStaffType.setText("Quản lý");
-
-        lblWorkingHours.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblWorkingHours.setForeground(new java.awt.Color(94, 84, 142));
-        lblWorkingHours.setText("20");
-
-        lblFeildManagement.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblFeildManagement.setForeground(new java.awt.Color(94, 84, 142));
-        lblFeildManagement.setText("Nhân viên");
-
-        lblSalaryFactor.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblSalaryFactor.setForeground(new java.awt.Color(94, 84, 142));
-        lblSalaryFactor.setText("3.0");
-
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel31.setText("Lương theo giờ:");
-
-        lblHourlyWage.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblHourlyWage.setForeground(new java.awt.Color(94, 84, 142));
-        lblHourlyWage.setText("jLabel34");
 
         javax.swing.GroupLayout pnlProductDetailsLayout = new javax.swing.GroupLayout(pnlProductDetails);
         pnlProductDetails.setLayout(pnlProductDetailsLayout);
@@ -235,110 +181,72 @@ public class Staff_GUI extends javax.swing.JPanel {
             .addGroup(pnlProductDetailsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                     .addGroup(pnlProductDetailsLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addComponent(jLabel21)
+                        .addGap(66, 66, 66)
+                        .addComponent(lblYearOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlProductDetailsLayout.createSequentialGroup()
                         .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlProductDetailsLayout.createSequentialGroup()
-                                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel26)
-                                    .addComponent(jLabel24)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel25))
-                                .addGap(27, 27, 27)
-                                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblStaffID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblStaffName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblYearOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                                    .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblBaseSalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblStaffType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(pnlProductDetailsLayout.createSequentialGroup()
-                                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlProductDetailsLayout.createSequentialGroup()
-                                        .addComponent(jLabel31)
-                                        .addGap(23, 23, 23))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductDetailsLayout.createSequentialGroup()
-                                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel29)
-                                            .addComponent(jLabel28))
-                                        .addGap(18, 18, 18)))
-                                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFeildManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblSalaryFactor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblHourlyWage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(pnlProductDetailsLayout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addGap(23, 23, 23)
-                                .addComponent(lblWorkingHours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11))
+                        .addGap(30, 30, 30)
+                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStaffID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblStaffName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlProductDetailsLayout.createSequentialGroup()
+                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))
+                        .addGap(27, 27, 27)
+                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStaffType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblSalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pnlProductDetailsLayout.setVerticalGroup(
             pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProductDetailsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlProductDetailsLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(lblStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(lblStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel21)
-                            .addComponent(lblYearOfBirth))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(lblGender))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(lblPhone))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25)
-                            .addComponent(lblBaseSalary))
-                        .addGap(37, 37, 37))
-                    .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblStaffType)
-                        .addComponent(jLabel26)))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(lblWorkingHours))
-                .addGap(14, 14, 14)
+                    .addComponent(jLabel11)
+                    .addComponent(lblStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(lblHourlyWage))
+                    .addComponent(jLabel12)
+                    .addComponent(lblStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblYearOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(lblFeildManagement))
-                .addGap(18, 18, 18)
-                .addGroup(pnlProductDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(lblSalaryFactor))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel26)
+                    .addComponent(lblStaffType, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         cbbSearchFilter.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         cbbSearchFilter.setForeground(new java.awt.Color(94, 84, 142));
-        cbbSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã nhân viên", "Tên nhân viên" }));
+        cbbSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã nhân viên", "Tên nhân viên", "Giới tính", "Loại nhân viên", " " }));
 
         txtSearch.setForeground(new java.awt.Color(153, 102, 255));
         txtSearch.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
@@ -348,20 +256,17 @@ public class Staff_GUI extends javax.swing.JPanel {
         btnSearch.setForeground(new java.awt.Color(94, 84, 142));
         btnSearch.setText("Tìm kiếm");
         btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         pnlProductConfiguration.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(94, 84, 142));
         jLabel7.setText("Chỉnh sửa danh sách nhân viên:");
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel8.setText("Mã nhân viên:");
-
-        txtStaffID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtStaffID.setForeground(new java.awt.Color(94, 84, 142));
-        txtStaffID.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(94, 84, 142));
@@ -373,27 +278,15 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel10.setText("Năm sinh:");
+        jLabel10.setText("Giới tính:");
 
-        txtYearOfBirth.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtYearOfBirth.setForeground(new java.awt.Color(94, 84, 142));
-        txtYearOfBirth.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel13.setText("Địa chỉ:");
-
-        txtAddress.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtAddress.setForeground(new java.awt.Color(94, 84, 142));
-        txtAddress.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-
-        txtGender.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtGender.setForeground(new java.awt.Color(94, 84, 142));
-        txtGender.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
+        txtYoB.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtYoB.setForeground(new java.awt.Color(94, 84, 142));
+        txtYoB.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel14.setText("Giới tính:");
+        jLabel14.setText("Năm sinh:");
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(94, 84, 142));
@@ -405,43 +298,19 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel16.setText("Lương cơ sở:");
+        jLabel16.setText("Lương:");
 
-        txtBaseSalary.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtBaseSalary.setForeground(new java.awt.Color(94, 84, 142));
-        txtBaseSalary.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
+        txtSalary.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtSalary.setForeground(new java.awt.Color(94, 84, 142));
+        txtSalary.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
 
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel17.setText("Số giờ làm việc:");
-
-        txtWorkingHours.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtWorkingHours.setForeground(new java.awt.Color(94, 84, 142));
-        txtWorkingHours.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel18.setText("Bộ phận quản lý:");
-
-        txtFeildManagement.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtFeildManagement.setForeground(new java.awt.Color(94, 84, 142));
-        txtFeildManagement.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-
-        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel19.setText("Hệ số lương:");
-
-        txtSalaryFactor.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtSalaryFactor.setForeground(new java.awt.Color(94, 84, 142));
-        txtSalaryFactor.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-
-        btnGroupStaffType.add(rdService);
-        rdService.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rdService.setForeground(new java.awt.Color(94, 84, 142));
-        rdService.setText("Phục vụ");
-        rdService.addActionListener(new java.awt.event.ActionListener() {
+        btnGroupStaffType.add(rdPhucVu);
+        rdPhucVu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rdPhucVu.setForeground(new java.awt.Color(94, 84, 142));
+        rdPhucVu.setText("Phục vụ");
+        rdPhucVu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdServiceActionPerformed(evt);
+                rdPhucVuActionPerformed(evt);
             }
         });
 
@@ -449,83 +318,67 @@ public class Staff_GUI extends javax.swing.JPanel {
         jLabel20.setForeground(new java.awt.Color(94, 84, 142));
         jLabel20.setText("Loại nhân viên:");
 
-        btnGroupStaffType.add(rdManager);
-        rdManager.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rdManager.setForeground(new java.awt.Color(94, 84, 142));
-        rdManager.setText("Quản lý");
+        btnGroupStaffType.add(rdQuanLy);
+        rdQuanLy.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rdQuanLy.setForeground(new java.awt.Color(94, 84, 142));
+        rdQuanLy.setText("Quản lý");
 
-        jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel30.setText("Lương theo giờ:");
+        btnGroupStaffGender.add(rdNam);
+        rdNam.setForeground(new java.awt.Color(94, 84, 142));
+        rdNam.setText("Nam");
 
-        txtHourlyWage.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtHourlyWage.setForeground(new java.awt.Color(94, 84, 142));
-        txtHourlyWage.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
+        btnGroupStaffGender.add(rdNu);
+        rdNu.setForeground(new java.awt.Color(94, 84, 142));
+        rdNu.setText("Nữ");
+
+        btnGroupStaffType.add(rdPhaChe);
+        rdPhaChe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rdPhaChe.setForeground(new java.awt.Color(94, 84, 142));
+        rdPhaChe.setText("Pha chế");
 
         javax.swing.GroupLayout pnlProductConfigurationLayout = new javax.swing.GroupLayout(pnlProductConfiguration);
         pnlProductConfiguration.setLayout(pnlProductConfigurationLayout);
         pnlProductConfigurationLayout.setHorizontalGroup(
             pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductConfigurationLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel7)
+                .addContainerGap(267, Short.MAX_VALUE))
+            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlProductConfigurationLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlProductConfigurationLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductConfigurationLayout.createSequentialGroup()
+                        .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel20))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                        .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
+                                .addComponent(rdPhucVu)
+                                .addGap(55, 55, 55)
+                                .addComponent(rdPhaChe)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rdQuanLy))
+                            .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductConfigurationLayout.createSequentialGroup()
+                        .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtYearOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtWorkingHours, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                                .addComponent(txtFeildManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtSalaryFactor, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductConfigurationLayout.createSequentialGroup()
-                                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel20))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                        .addComponent(rdService)
-                                        .addGap(72, 72, 72)
-                                        .addComponent(rdManager))
-                                    .addComponent(txtBaseSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtHourlyWage, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(rdNam)
+                                .addGap(103, 103, 103)
+                                .addComponent(rdNu))
+                            .addComponent(txtYoB, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         pnlProductConfigurationLayout.setVerticalGroup(
@@ -535,59 +388,37 @@ public class Staff_GUI extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtYearOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(rdNam)
+                    .addComponent(rdNu))
+                .addGap(18, 18, 18)
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtYoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(txtBaseSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(rdService)
-                    .addComponent(rdManager))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtWorkingHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(txtHourlyWage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(txtFeildManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(txtSalaryFactor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(rdPhucVu)
+                    .addComponent(rdQuanLy)
+                    .addComponent(rdPhaChe))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         btnAdd.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(94, 84, 142));
-        btnAdd.setText("Thêm sản phẩm");
+        btnAdd.setText("Thêm nhân viên");
         btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
         btnAdd.setMaximumSize(new java.awt.Dimension(91, 32));
         btnAdd.setPreferredSize(new java.awt.Dimension(91, 32));
@@ -599,7 +430,7 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         btnDelete.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(94, 84, 142));
-        btnDelete.setText("Xóa sản phẩm");
+        btnDelete.setText("Xóa nhân viên");
         btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
         btnDelete.setMaximumSize(new java.awt.Dimension(81, 32));
         btnDelete.setPreferredSize(new java.awt.Dimension(81, 32));
@@ -611,40 +442,61 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         btnUpdate.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(94, 84, 142));
-        btnUpdate.setText("Cập nhật sản phẩm");
+        btnUpdate.setText("Cập nhật");
         btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
         btnUpdate.setMaximumSize(new java.awt.Dimension(109, 32));
         btnUpdate.setMinimumSize(new java.awt.Dimension(109, 32));
         btnUpdate.setPreferredSize(new java.awt.Dimension(109, 32));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnRefresh.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(94, 84, 142));
+        btnRefresh.setText("Tải lại danh sách");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnRefresh.setMaximumSize(new java.awt.Dimension(91, 32));
+        btnRefresh.setPreferredSize(new java.awt.Dimension(91, 32));
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cbbSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(pnlProductConfiguration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(scrStaffList, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(119, 119, 119))
+                                .addComponent(cbbSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(scrStaffList, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(pnlProductConfiguration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(156, 156, 156))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -657,16 +509,20 @@ public class Staff_GUI extends javax.swing.JPanel {
                             .addComponent(txtSearch)
                             .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(scrStaffList, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrStaffList, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pnlProductConfiguration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pnlProductDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(pnlProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(673, 673, 673))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -683,23 +539,217 @@ public class Staff_GUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdServiceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdServiceActionPerformed
+    private void loadList(ArrayList<Staff_DTO> list) {
+        DefaultTableModel model = (DefaultTableModel) tblStaffList.getModel();
+        model.setRowCount(0);
+
+        for (Staff_DTO staff : list) {
+            model.addRow(new Object[]{staff.getId(), staff.getName()});
+        }
+    }
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        if (isEmptyAdd()) {
+            JOptionPane.showMessageDialog(this, "Không được để trống thông tin!");
+        } else {
+            int yob, phone, salary;
+            String gender = "", type = "";
+            try {
+                yob = Integer.parseInt(txtYoB.getText());
+                phone = Integer.parseInt(txtPhone.getText());
+                salary = Integer.parseInt(txtSalary.getText());
+
+                if (rdNam.isSelected()) {
+                    gender = "Nam";
+                } else {
+                    gender = "Nữ";
+                }
+
+                if (rdPhucVu.isSelected()) {
+                    type = "Phục vụ";
+                } else if (rdPhaChe.isSelected()) {
+                    type = "Pha chế";
+                } else {
+                    type = "Quản lý";
+                }
+
+                Staff_DTO newStaff = new Staff_DTO(0, txtStaffName.getText(), yob, gender, phone, salary, type);
+                if (staffBUS.insert(newStaff)) {
+                    JOptionPane.showMessageDialog(this, "Thêm nhân viên thành công!");
+                    listStaff = staffBUS.list();
+                    loadList(listStaff);
+                    reset();
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Định dạng dữ liệu không hợp lệ!");
+            }
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        if (selectedStaff == 0) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn nhân viên cần xóa!");
+        } else {
+            int option = JOptionPane.showConfirmDialog(this, "Bạn muốn xóa nhân viên " + selectedStaff + "?", "Xóa nhân viên", JOptionPane.OK_CANCEL_OPTION);
+            if (option == JOptionPane.OK_OPTION) {
+                if (staffBUS.delete(selectedStaff)) {
+                    JOptionPane.showMessageDialog(this, "Xóa nhân viên thành công!");
+                    listStaff = staffBUS.list();
+                    loadList(listStaff);
+                    reset();
+                }
+            }
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void rdPhucVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdPhucVuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdPhucVuActionPerformed
+
+    private void reset() {
+        txtStaffName.setText("");
+        txtYoB.setText("");
+        txtPhone.setText("");
+        txtSalary.setText("");
+        rdNam.setSelected(false);
+        rdNu.setSelected(false);
+        rdPhucVu.setSelected(false);
+        rdPhaChe.setSelected(false);
+        rdQuanLy.setSelected(false);
+
+        lblStaffID.setText("");
+        lblStaffName.setText("");
+        lblYearOfBirth.setText("");
+        lblGender.setText("");
+        lblStaffType.setText("");
+        lblSalary.setText("");
+        lblPhone.setText("");
+
+        selectedStaff = 0;
+    }
+
+    private boolean isEmptyAdd() {
+        if (txtStaffName.getText().isBlank()
+                || (!rdNam.isSelected() && !rdNu.isSelected())
+                || txtYoB.getText().isBlank()
+                || txtPhone.getText().isBlank()
+                || txtSalary.getText().isBlank()
+                || (!rdPhucVu.isSelected() && !rdPhaChe.isSelected() && !rdQuanLy.isSelected())) {
+            return true;
+        }
+        return false;
+    }
+
+    private void tblStaffListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStaffListMouseClicked
+        int i = tblStaffList.getSelectedRow();
+        Staff_DTO staff = listStaff.get(i);
+
+        if (i >= 0) {
+            lblStaffID.setText(staff.getId() + "");
+            lblStaffName.setText(staff.getName());
+            lblYearOfBirth.setText(staff.getYob() + "");
+            lblGender.setText(staff.getGender());
+            lblPhone.setText("0" + staff.getPhone() + "");
+            lblSalary.setText(staff.getSalary() + "");
+            lblStaffType.setText(staff.getType());
+            selectedStaff = staff.getId();
+        }
+    }//GEN-LAST:event_tblStaffListMouseClicked
+
+    private boolean isEmptyUpdate() {
+        if (txtStaffName.getText().isBlank()
+                && (!rdNam.isSelected() && !rdNu.isSelected())
+                && txtYoB.getText().isBlank()
+                && txtPhone.getText().isBlank()
+                && txtSalary.getText().isBlank()
+                && (!rdPhucVu.isSelected() && !rdPhaChe.isSelected() && !rdQuanLy.isSelected())) {
+            return true;
+        }
+        return false;
+    }
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        if (selectedStaff == 0) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn nhân viên cần cập nhật thông tin!");
+        } else if (isEmptyUpdate()) {
+            JOptionPane.showMessageDialog(this, "Không có thông tin cần cập nhật!");
+        } else {
+            String name = lblStaffName.getText();
+            int yob = Integer.parseInt(lblYearOfBirth.getText());
+            String gender = lblGender.getText();
+            int phone = Integer.parseInt(lblPhone.getText());
+            int salary = Integer.parseInt(lblSalary.getText());
+            String type = lblStaffType.getText();
+
+            if (!txtStaffName.getText().isBlank()) {
+                name = txtStaffName.getText();
+            }
+            if (rdNam.isSelected()) {
+                gender = "Nam";
+            } else if (rdNu.isSelected()) {
+                gender = "Nữ";
+            }
+            if (!txtYoB.getText().isBlank()) {
+                yob = Integer.parseInt(txtYoB.getText());
+            }
+            if (!txtPhone.getText().isBlank()) {
+                phone = Integer.parseInt(txtPhone.getText());
+            }
+            if (!txtSalary.getText().isBlank()) {
+                salary = Integer.parseInt(txtSalary.getText());
+            }
+            if (rdPhucVu.isSelected()) {
+                type = "Phục vụ";
+            } else if (rdPhaChe.isSelected()) {
+                type = "Pha chế";
+            } else if (rdQuanLy.isSelected()) {
+                type = "Quản lý";
+            }
+
+            Staff_DTO staff = new Staff_DTO(selectedStaff, name, yob, gender, phone, salary, type);
+            if (staffBUS.update(staff)) {
+                JOptionPane.showMessageDialog(this, "Cập nhật thông tin nhân viên thành công!");
+                listStaff = staffBUS.list();
+                loadList(listStaff);
+                reset();
+            }
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        listSearch.clear();
+        if (txtSearch.getText().isBlank()) {
+            loadList(listStaff);
+        } else {
+            try {
+                String filter = cbbSearchFilter.getSelectedItem() + "";
+                if (cbbSearchFilter.getSelectedItem().equals("Mã nhân viên")) {
+                    Integer.parseInt(txtSearch.getText());
+                }
+                listSearch = staffBUS.search(txtSearch.getText(), filter);
+            } catch (NumberFormatException e) {
+
+            }
+        }
+        if (listSearch.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Không tìm thấy kết quả hợp lệ!");
+        }
+        else {
+            loadList(listSearch);
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        loadList(listStaff);
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
+    private javax.swing.ButtonGroup btnGroupStaffGender;
     private javax.swing.ButtonGroup btnGroupStaffType;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbbSearchFilter;
@@ -707,60 +757,40 @@ public class Staff_GUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAddress;
-    private javax.swing.JLabel lblBaseSalary;
-    private javax.swing.JLabel lblFeildManagement;
     private javax.swing.JLabel lblGender;
-    private javax.swing.JLabel lblHourlyWage;
     private javax.swing.JLabel lblPhone;
-    private javax.swing.JLabel lblSalaryFactor;
+    private javax.swing.JLabel lblSalary;
     private javax.swing.JLabel lblStaffID;
     private javax.swing.JLabel lblStaffName;
     private javax.swing.JLabel lblStaffType;
-    private javax.swing.JLabel lblWorkingHours;
     private javax.swing.JLabel lblYearOfBirth;
     private javax.swing.JPanel pnlProductConfiguration;
     private javax.swing.JPanel pnlProductDetails;
-    private javax.swing.JRadioButton rdManager;
-    private javax.swing.JRadioButton rdService;
+    private javax.swing.JRadioButton rdNam;
+    private javax.swing.JRadioButton rdNu;
+    private javax.swing.JRadioButton rdPhaChe;
+    private javax.swing.JRadioButton rdPhucVu;
+    private javax.swing.JRadioButton rdQuanLy;
     private javax.swing.JScrollPane scrStaffList;
     private javax.swing.JTable tblStaffList;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtBaseSalary;
-    private javax.swing.JTextField txtFeildManagement;
-    private javax.swing.JTextField txtGender;
-    private javax.swing.JTextField txtHourlyWage;
     private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtSalaryFactor;
+    private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtStaffID;
     private javax.swing.JTextField txtStaffName;
-    private javax.swing.JTextField txtWorkingHours;
-    private javax.swing.JTextField txtYearOfBirth;
+    private javax.swing.JTextField txtYoB;
     // End of variables declaration//GEN-END:variables
 }

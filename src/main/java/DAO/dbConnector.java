@@ -20,14 +20,13 @@ public class dbConnector {
     public dbConnector() {
             try {
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee_shop", "root", "");
-                System.out.println("Database connection successful!");
             } catch (SQLException ex) {
                 Logger.getLogger(dbConnector.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     
-    public static void main(String[] args) {
-        dbConnector dbConnector = new dbConnector();
-    }
+//    public static void main(String[] args) {
+//        dbConnector dbConnector = new dbConnector();
+//    }
     
 }

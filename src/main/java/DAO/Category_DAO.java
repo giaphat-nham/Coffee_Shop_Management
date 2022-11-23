@@ -1,5 +1,6 @@
 package DAO;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,5 +26,30 @@ public class Category_DAO extends dbConnector{
             Logger.getLogger(Category_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    
+    public boolean insert(String cateName) {
+        try {
+            PreparedStatement pst = conn.prepareStatement("INSERT INTO category(CategoryName) VALUES ('"+cateName+"')");
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Category_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean delete(String cateName) {
+        try {
+            PreparedStatement pst = conn.prepareStatement("DELETE FROM category WHERE CategoryName = '"+cateName+"'");
+            pst.executeUpdate();
+            
+            PreparedStatement pst1 = conn.prepareStatement("UPDATE product SET Category = 'none' WHERE Category = '"+cateName+"'");
+            pst1.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Category_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return true;
     }
 }

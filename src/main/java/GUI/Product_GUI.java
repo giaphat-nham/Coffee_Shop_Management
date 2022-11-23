@@ -21,6 +21,8 @@ public class Product_GUI extends javax.swing.JPanel {
     ArrayList<Product_DTO> listProduct = new ArrayList();
     ArrayList<Product_DTO> listSearch = new ArrayList();
     int selectedProduct = 0;
+    Category_BUS categoryBUS = new Category_BUS();
+    ArrayList<String> categoryList = categoryBUS.list();
 
     public Product_GUI() {
         initComponents();
@@ -66,6 +68,8 @@ public class Product_GUI extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         cbbCategory = new javax.swing.JComboBox<>();
         btnReset = new javax.swing.JButton();
+        btnAddCate = new javax.swing.JButton();
+        btnDelCate = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(94, 84, 142));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -334,6 +338,30 @@ public class Product_GUI extends javax.swing.JPanel {
             }
         });
 
+        btnAddCate.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnAddCate.setForeground(new java.awt.Color(94, 84, 142));
+        btnAddCate.setText("Thêm loại SP");
+        btnAddCate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnAddCate.setMaximumSize(new java.awt.Dimension(91, 32));
+        btnAddCate.setPreferredSize(new java.awt.Dimension(91, 32));
+        btnAddCate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCateActionPerformed(evt);
+            }
+        });
+
+        btnDelCate.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnDelCate.setForeground(new java.awt.Color(94, 84, 142));
+        btnDelCate.setText("Xóa loại SP");
+        btnDelCate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnDelCate.setMaximumSize(new java.awt.Dimension(91, 32));
+        btnDelCate.setPreferredSize(new java.awt.Dimension(91, 32));
+        btnDelCate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelCateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -353,12 +381,19 @@ public class Product_GUI extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlProductDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAddCate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelCate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -374,8 +409,11 @@ public class Product_GUI extends javax.swing.JPanel {
                             .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(395, 395, 395))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddCate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelCate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(483, 483, 483))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbbSearchFilter)
@@ -414,11 +452,9 @@ public class Product_GUI extends javax.swing.JPanel {
     }
 
     private void loadCombobox() {
-        Category_BUS categoryBUS = new Category_BUS();
-        ArrayList<String> category = categoryBUS.list();
+        categoryList = categoryBUS.list();
         cbbCategory.removeAllItems();
-
-        for (String cate : category) {
+        for (String cate : categoryList) {
             cbbCategory.addItem(cate);
         }
     }
@@ -434,6 +470,7 @@ public class Product_GUI extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Xóa sản phẩm thành công");
                     listProduct = productBUS.list();
                     loadList(listProduct);
+                    reset();
                 }
             }
         }
@@ -471,6 +508,7 @@ public class Product_GUI extends javax.swing.JPanel {
         txtProductName.setText("");
         txtProductPrice.setText("");
         cbbCategory.setSelectedIndex(0);
+        selectedProduct = 0;
     }
 
     private boolean inputEmpty() {
@@ -562,9 +600,39 @@ public class Product_GUI extends javax.swing.JPanel {
         txtSearch.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
 
+    private void btnAddCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCateActionPerformed
+        String cateName = JOptionPane.showInputDialog("Nhập tên loại sản phẩm");
+        
+        if (cateName != null && cateName.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Không được để trống thông tin!");
+        } else if (cateName != null && categoryList.contains(cateName)) {
+            JOptionPane.showMessageDialog(this, "Tên loại sản phẩm đã tồn tại");
+        } else if (cateName != null) {
+            if (categoryBUS.insert(cateName)) {
+                JOptionPane.showMessageDialog(this, "Thêm loại sản phẩm thành công!");
+                loadCombobox();
+            }
+        }
+    }//GEN-LAST:event_btnAddCateActionPerformed
+
+    private void btnDelCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelCateActionPerformed
+        String selectedCate = cbbCategory.getSelectedItem() + "";
+        
+        int option = JOptionPane.showConfirmDialog(this, "Bạn muốn xóa loại sản phẩm đã chọn?","Xóa sản phẩm", JOptionPane.OK_CANCEL_OPTION);
+        if (option == JOptionPane.OK_OPTION) {
+            if (categoryBUS.delete(selectedCate)) {
+                JOptionPane.showMessageDialog(this, "Xóa loại sản phẩm thành công!");
+                loadCombobox();
+            }
+        }
+        
+    }//GEN-LAST:event_btnDelCateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddCate;
+    private javax.swing.JButton btnDelCate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch;
