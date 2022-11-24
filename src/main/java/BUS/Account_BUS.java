@@ -30,4 +30,28 @@ public class Account_BUS {
     public Account_DTO getAccount(String username) {
         return accountDAO.getAccount(username);
     }
+    
+    public boolean insert(Account_DTO account) {
+        return accountDAO.insert(account);
+    }
+
+    public boolean update(Account_DTO account) {
+        return accountDAO.update(account);
+    }
+    
+    public boolean delete(String username) {
+        return accountDAO.delete(username);
+    }
+    
+    public boolean hadAccount (int id) {
+        return accountDAO.hadAccount(id);
+    }
+    
+    public boolean usernameExistedIgnores(String username, String ignore) {
+        return accountDAO.usernameExistedIgnores(username, ignore);
+    }
+    
+    public ArrayList<Account_DTO> search(String key, String filter) {
+        return accountDAO.search(key, filter);
+    }
 }

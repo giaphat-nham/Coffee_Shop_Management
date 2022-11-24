@@ -29,6 +29,7 @@ public class Home_GUI extends javax.swing.JFrame {
         else {
             lblIsAdmin.setText("No");
         }
+        lockPanels(user.isIsAdmin());
     }
 
     /**
@@ -465,6 +466,16 @@ public class Home_GUI extends javax.swing.JFrame {
         pnlFunction.revalidate();
     }
 
+    private void lockPanels(boolean isAdmin) {
+        if (isAdmin == false) {
+            pnlSanPham.setVisible(false);
+            pnlNhanVien.setVisible(false);
+            pnlTaiKhoan.setVisible(false);
+            pnlThongKe.setVisible(false);
+            pnlHoaDon.setVisible(false);
+        }
+    }
+    
     private void pnlSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlSanPhamMouseClicked
         activePanel(pnlSanPham);
         openFunctionPanel(new Product_GUI());
