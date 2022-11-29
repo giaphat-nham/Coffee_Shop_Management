@@ -515,7 +515,7 @@ public class Account_GUI extends javax.swing.JPanel {
         } else if (inputEmptyUpdate()) {
             JOptionPane.showMessageDialog(this, "Không có thông tin cần cập nhật!");
         } else if (accountBUS.usernameExistedIgnores(txtName.getText(), lblName.getText())) {
-            JOptionPane.showMessageDialog(this, lblName);
+            JOptionPane.showMessageDialog(this, "Tên tài khoản này đã tồn tại");
         } else {
             String username = lblName.getText();
             String password = lblPassword.getText();
