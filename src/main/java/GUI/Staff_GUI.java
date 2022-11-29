@@ -556,8 +556,11 @@ public class Staff_GUI extends javax.swing.JPanel {
             String gender = "", type = "";
             try {
                 yob = Integer.parseInt(txtYoB.getText());
+                yob = Math.abs(yob);
                 phone = Integer.parseInt(txtPhone.getText());
+                phone = Math.abs(phone);
                 salary = Integer.parseInt(txtSalary.getText());
+                salary = Math.abs(salary);
 
                 if (rdNam.isSelected()) {
                     gender = "Nam";

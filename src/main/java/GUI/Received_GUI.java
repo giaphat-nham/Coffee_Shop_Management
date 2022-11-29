@@ -35,24 +35,24 @@ public class Received_GUI extends javax.swing.JPanel {
         lblReceiveNoteID = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblStaffID = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         scrGoodList = new javax.swing.JScrollPane();
         tblGoodList = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
         cbbSearchFilter = new javax.swing.JComboBox<>();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
         pnlProductConfiguration = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtReceiveNoteID = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtStaffID = new javax.swing.JTextField();
         scrGoodListConfig = new javax.swing.JScrollPane();
         tblGoodListConfig = new javax.swing.JTable();
-        jLabel12 = new javax.swing.JLabel();
+        btnConfirm = new javax.swing.JButton();
+        btnAddProduct = new javax.swing.JButton();
+        btnDeleteProduct = new javax.swing.JButton();
+        btnNhapHang = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(94, 84, 142));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,10 +66,7 @@ public class Received_GUI extends javax.swing.JPanel {
         tblReceivedNoteList.setForeground(new java.awt.Color(94, 84, 142));
         tblReceivedNoteList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"RN0001", "S0001"},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Mã phiếu nhập", "Mã nhân viên"
@@ -93,7 +90,6 @@ public class Received_GUI extends javax.swing.JPanel {
 
         lblReceiveNoteID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblReceiveNoteID.setForeground(new java.awt.Color(94, 84, 142));
-        lblReceiveNoteID.setText("RN0001");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(94, 84, 142));
@@ -101,11 +97,6 @@ public class Received_GUI extends javax.swing.JPanel {
 
         lblStaffID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblStaffID.setForeground(new java.awt.Color(94, 84, 142));
-        lblStaffID.setText("S0001");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel6.setText("Hàng hóa:");
 
         scrGoodList.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -113,18 +104,14 @@ public class Received_GUI extends javax.swing.JPanel {
         tblGoodList.setForeground(new java.awt.Color(94, 84, 142));
         tblGoodList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Trà túi lọc", "Túi", "1", null, null},
-                {"Sữa lùn", "ml", "50", null, null},
-                {"Nước", "ml", "200", null, null},
-                {"Đường", "g", "50", null, null},
-                {"Trân châu", "g", "10", null, null}
+
             },
             new String [] {
-                "Mã hàng hóa", "Tên hàng hóa", "Số lượng", "Giá", "Đơn vị"
+                "Mã sản phẩm", "Tên sản phẩm", "Số lượng", "Đơn giá"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -136,6 +123,20 @@ public class Received_GUI extends javax.swing.JPanel {
         tblGoodList.setSelectionForeground(new java.awt.Color(204, 153, 255));
         scrGoodList.setViewportView(tblGoodList);
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(94, 84, 142));
+        jLabel4.setText("Thành tiền:");
+
+        lblTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(94, 84, 142));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(94, 84, 142));
+        jLabel5.setText("Ngày nhập:");
+
+        lblDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(94, 84, 142));
+
         javax.swing.GroupLayout pnlReceivedNoteDetailsLayout = new javax.swing.GroupLayout(pnlReceivedNoteDetails);
         pnlReceivedNoteDetails.setLayout(pnlReceivedNoteDetailsLayout);
         pnlReceivedNoteDetailsLayout.setHorizontalGroup(
@@ -143,22 +144,27 @@ public class Received_GUI extends javax.swing.JPanel {
             .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
+                        .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)))
+                        .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblReceiveNoteID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblStaffID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(scrGoodList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addComponent(lblReceiveNoteID, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlReceivedNoteDetailsLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlReceivedNoteDetailsLayout.setVerticalGroup(
@@ -167,18 +173,24 @@ public class Received_GUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblReceiveNoteID))
+                .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblReceiveNoteID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lblStaffID))
+                    .addComponent(lblStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrGoodList)
-                .addContainerGap())
+                .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(scrGoodList, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlReceivedNoteDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         cbbSearchFilter.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -194,81 +206,38 @@ public class Received_GUI extends javax.swing.JPanel {
         btnSearch.setText("Tìm kiếm");
         btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
 
-        btnAdd.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(94, 84, 142));
-        btnAdd.setText("Thêm sản phẩm");
-        btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
-        btnAdd.setMaximumSize(new java.awt.Dimension(91, 32));
-        btnAdd.setPreferredSize(new java.awt.Dimension(91, 32));
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-
         btnDelete.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(94, 84, 142));
-        btnDelete.setText("Xóa sản phẩm");
+        btnDelete.setText("Xóa phiếu nhập");
         btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
-        btnDelete.setMaximumSize(new java.awt.Dimension(81, 32));
-        btnDelete.setPreferredSize(new java.awt.Dimension(81, 32));
+        btnDelete.setMaximumSize(new java.awt.Dimension(91, 32));
+        btnDelete.setPreferredSize(new java.awt.Dimension(91, 32));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
-        btnUpdate.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(94, 84, 142));
-        btnUpdate.setText("Cập nhật sản phẩm");
-        btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
-        btnUpdate.setMaximumSize(new java.awt.Dimension(109, 32));
-        btnUpdate.setMinimumSize(new java.awt.Dimension(109, 32));
-        btnUpdate.setPreferredSize(new java.awt.Dimension(109, 32));
-
         pnlProductConfiguration.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel7.setText("Chỉnh sửa danh sách phiếu nhập:");
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel8.setText("Mã phiếu nhập:");
-
-        txtReceiveNoteID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtReceiveNoteID.setForeground(new java.awt.Color(94, 84, 142));
-        txtReceiveNoteID.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel9.setText("Mã nhân viên:");
-
-        txtStaffID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtStaffID.setForeground(new java.awt.Color(94, 84, 142));
-        txtStaffID.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 84, 142)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
+        jLabel7.setText("Nhập hàng");
 
         tblGoodListConfig.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         tblGoodListConfig.setForeground(new java.awt.Color(153, 102, 255));
         tblGoodListConfig.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Mã hàng hóa", "Tên hàng hóa", "Số lượng", "Giá", "Đơn vị"
+                "Mã sản phẩm", "Tên sản phẩm", "Đơn giá"
             }
         ));
         tblGoodListConfig.setGridColor(new java.awt.Color(204, 153, 255));
         tblGoodListConfig.setSelectionBackground(new java.awt.Color(204, 153, 255));
         tblGoodListConfig.setSelectionForeground(new java.awt.Color(255, 255, 255));
         scrGoodListConfig.setViewportView(tblGoodListConfig);
-
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(94, 84, 142));
-        jLabel12.setText("Hàng hóa:");
 
         javax.swing.GroupLayout pnlProductConfigurationLayout = new javax.swing.GroupLayout(pnlProductConfiguration);
         pnlProductConfiguration.setLayout(pnlProductConfigurationLayout);
@@ -277,24 +246,9 @@ public class Received_GUI extends javax.swing.JPanel {
             .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrGoodListConfig, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
                     .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                                .addComponent(txtStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtReceiveNoteID, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(scrGoodListConfig, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                        .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addGroup(pnlProductConfigurationLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel12)))
+                        .addComponent(jLabel7)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -304,44 +258,87 @@ public class Received_GUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtReceiveNoteID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrGoodListConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addComponent(scrGoodListConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        btnConfirm.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnConfirm.setForeground(new java.awt.Color(94, 84, 142));
+        btnConfirm.setText("Xác nhận");
+        btnConfirm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnConfirm.setMaximumSize(new java.awt.Dimension(91, 32));
+        btnConfirm.setPreferredSize(new java.awt.Dimension(91, 32));
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
+
+        btnAddProduct.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnAddProduct.setForeground(new java.awt.Color(94, 84, 142));
+        btnAddProduct.setText("Thêm sản phẩm");
+        btnAddProduct.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnAddProduct.setMaximumSize(new java.awt.Dimension(91, 32));
+        btnAddProduct.setPreferredSize(new java.awt.Dimension(91, 32));
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
+
+        btnDeleteProduct.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnDeleteProduct.setForeground(new java.awt.Color(94, 84, 142));
+        btnDeleteProduct.setText("Xóa sản phẩm");
+        btnDeleteProduct.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnDeleteProduct.setMaximumSize(new java.awt.Dimension(81, 32));
+        btnDeleteProduct.setPreferredSize(new java.awt.Dimension(81, 32));
+        btnDeleteProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteProductActionPerformed(evt);
+            }
+        });
+
+        btnNhapHang.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnNhapHang.setForeground(new java.awt.Color(94, 84, 142));
+        btnNhapHang.setText("Nhập hàng");
+        btnNhapHang.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)));
+        btnNhapHang.setMaximumSize(new java.awt.Dimension(91, 32));
+        btnNhapHang.setPreferredSize(new java.awt.Dimension(91, 32));
+        btnNhapHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNhapHangActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrReceivedNoteList)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrReceivedNoteList, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(cbbSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnlProductConfiguration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                    .addComponent(pnlProductConfiguration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(pnlReceivedNoteDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlReceivedNoteDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -349,6 +346,13 @@ public class Received_GUI extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(pnlReceivedNoteDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(64, 64, 64))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbbSearchFilter)
@@ -359,12 +363,11 @@ public class Received_GUI extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(pnlProductConfiguration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(pnlReceivedNoteDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDeleteProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNhapHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(16, 16, 16))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -383,32 +386,46 @@ public class Received_GUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteProductActionPerformed
+
+    private void btnNhapHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapHangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNhapHangActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddProduct;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDeleteProduct;
+    private javax.swing.JButton btnNhapHang;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbbSearchFilter;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblReceiveNoteID;
     private javax.swing.JLabel lblStaffID;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel pnlProductConfiguration;
     private javax.swing.JPanel pnlReceivedNoteDetails;
     private javax.swing.JScrollPane scrGoodList;
@@ -417,8 +434,6 @@ public class Received_GUI extends javax.swing.JPanel {
     private javax.swing.JTable tblGoodList;
     private javax.swing.JTable tblGoodListConfig;
     private javax.swing.JTable tblReceivedNoteList;
-    private javax.swing.JTextField txtReceiveNoteID;
     private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtStaffID;
     // End of variables declaration//GEN-END:variables
 }
