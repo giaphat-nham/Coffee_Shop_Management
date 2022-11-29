@@ -39,6 +39,7 @@ public class Sale_GUI extends javax.swing.JPanel {
         lblBillID = new javax.swing.JLabel();
         lblStaffID = new javax.swing.JLabel();
         scrProductListBill = new javax.swing.JScrollPane();
+        tblBillSale = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         btnClearSale = new javax.swing.JButton();
@@ -62,28 +63,28 @@ public class Sale_GUI extends javax.swing.JPanel {
         tblProductList.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Tên sản phẩm", "Giá sản phẩm"
+                "Mã sản phẩm", "Tên sản phẩm", "Giá sản phẩm"
             }
         ));
         scrProductList.setViewportView(tblProductList);
@@ -97,6 +98,19 @@ public class Sale_GUI extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel3.setText("Mã nhân viên:");
+
+        tblBillSale.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Tên sản phẩm", "Số lượng", "Thành tiền"
+            }
+        ));
+        scrProductListBill.setViewportView(tblBillSale);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Tổng thành tiền:");
@@ -128,7 +142,7 @@ public class Sale_GUI extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrProductListBill)
+                            .addComponent(scrProductListBill, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3)
@@ -181,7 +195,7 @@ public class Sale_GUI extends javax.swing.JPanel {
         );
 
         btnAddProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnAddProduct.setText("Thêm sản phẩm");
+        btnAddProduct.setText("THÊM SẢN PHẨM");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -273,6 +287,7 @@ public class Sale_GUI extends javax.swing.JPanel {
     private javax.swing.JLabel lblTotal;
     private javax.swing.JScrollPane scrProductList;
     private javax.swing.JScrollPane scrProductListBill;
+    private javax.swing.JTable tblBillSale;
     private javax.swing.JTable tblProductList;
     private javax.swing.JTextField txtSearchProduct;
     // End of variables declaration//GEN-END:variables
