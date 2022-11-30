@@ -53,8 +53,6 @@ public class Home_GUI extends javax.swing.JFrame {
         lblBanHang = new javax.swing.JLabel();
         pnlSanPham = new javax.swing.JPanel();
         lblSanPham = new javax.swing.JLabel();
-        pnlNhapHang = new javax.swing.JPanel();
-        lblNhapHang = new javax.swing.JLabel();
         pnlNhanVien = new javax.swing.JPanel();
         lblNhanVien = new javax.swing.JLabel();
         pnlTaiKhoan = new javax.swing.JPanel();
@@ -81,7 +79,6 @@ public class Home_GUI extends javax.swing.JFrame {
         lblLoggedInUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblLoggedInUser.setForeground(new java.awt.Color(255, 255, 255));
         lblLoggedInUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblLoggedInUser.setText("jLabel2");
 
         lblLoginSessionDateTime.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblLoginSessionDateTime.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +87,6 @@ public class Home_GUI extends javax.swing.JFrame {
         lblIsAdmin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblIsAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblIsAdmin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblIsAdmin.setText("jLabel2");
 
         btnDangXuat.setText("Đăng xuất");
         btnDangXuat.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -124,13 +120,13 @@ public class Home_GUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLoginSessionUsername)
-                    .addComponent(lblLoggedInUser))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblLoginSessionUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLoggedInUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLoginSessionDateTime)
-                    .addComponent(lblIsAdmin))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblLoginSessionDateTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblIsAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -198,36 +194,6 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlNhapHang.setBackground(new java.awt.Color(114, 81, 181));
-        pnlNhapHang.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        pnlNhapHang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlNhapHangMouseClicked(evt);
-            }
-        });
-
-        lblNhapHang.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblNhapHang.setForeground(new java.awt.Color(255, 255, 255));
-        lblNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNhapHang.setText("Nhập hàng");
-
-        javax.swing.GroupLayout pnlNhapHangLayout = new javax.swing.GroupLayout(pnlNhapHang);
-        pnlNhapHang.setLayout(pnlNhapHangLayout);
-        pnlNhapHangLayout.setHorizontalGroup(
-            pnlNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNhapHangLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNhapHang, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pnlNhapHangLayout.setVerticalGroup(
-            pnlNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNhapHangLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblNhapHang)
-                .addContainerGap())
-        );
-
         pnlNhanVien.setBackground(new java.awt.Color(114, 81, 181));
         pnlNhanVien.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         pnlNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,7 +213,7 @@ public class Home_GUI extends javax.swing.JFrame {
             pnlNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNhanVienLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlNhanVienLayout.setVerticalGroup(
@@ -357,7 +323,6 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlBanHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlSanPham, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlNhapHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlNhanVien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlTaiKhoan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlThongKe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -371,9 +336,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addComponent(pnlBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pnlSanPham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(pnlNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,7 +344,7 @@ public class Home_GUI extends javax.swing.JFrame {
                 .addComponent(pnlThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         pnlFunction.setBackground(new java.awt.Color(193, 158, 224));
@@ -485,11 +448,6 @@ public class Home_GUI extends javax.swing.JFrame {
         activePanel(pnlBanHang);
     }//GEN-LAST:event_pnlBanHangMouseClicked
 
-    private void pnlNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhapHangMouseClicked
-        activePanel(pnlNhapHang);
-        openFunctionPanel(new Received_GUI());
-    }//GEN-LAST:event_pnlNhapHangMouseClicked
-
     private void pnlNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMouseClicked
         activePanel(pnlNhanVien);
         openFunctionPanel(new Staff_GUI());
@@ -559,7 +517,6 @@ public class Home_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblLoginSessionDateTime;
     private javax.swing.JLabel lblLoginSessionUsername;
     private javax.swing.JLabel lblNhanVien;
-    private javax.swing.JLabel lblNhapHang;
     private javax.swing.JLabel lblSanPham;
     private javax.swing.JLabel lblTaiKhoan;
     private javax.swing.JLabel lblThongKe;
@@ -569,7 +526,6 @@ public class Home_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnlNhanVien;
-    private javax.swing.JPanel pnlNhapHang;
     private javax.swing.JPanel pnlSanPham;
     private javax.swing.JPanel pnlTaiKhoan;
     private javax.swing.JPanel pnlThongKe;

@@ -246,7 +246,7 @@ public class Staff_GUI extends javax.swing.JPanel {
 
         cbbSearchFilter.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         cbbSearchFilter.setForeground(new java.awt.Color(94, 84, 142));
-        cbbSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã nhân viên", "Tên nhân viên", "Giới tính", "Loại nhân viên", " " }));
+        cbbSearchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã nhân viên", "Tên nhân viên", "Giới tính", "Loại nhân viên" }));
 
         txtSearch.setForeground(new java.awt.Color(153, 102, 255));
         txtSearch.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 102, 255)), javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 4)));
