@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
  */
 public class Home_GUI extends javax.swing.JFrame {
 
-    Account_DTO user;
+    public static Account_DTO user;
     
     public Home_GUI(Account_DTO account) {
         initComponents();
@@ -446,6 +446,7 @@ public class Home_GUI extends javax.swing.JFrame {
 
     private void pnlBanHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBanHangMouseClicked
         activePanel(pnlBanHang);
+        openFunctionPanel(new Sale_GUI());
     }//GEN-LAST:event_pnlBanHangMouseClicked
 
     private void pnlNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNhanVienMouseClicked
@@ -460,10 +461,12 @@ public class Home_GUI extends javax.swing.JFrame {
 
     private void pnlThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlThongKeMouseClicked
         activePanel(pnlThongKe);
+        openFunctionPanel(new Statistic_GUI());
     }//GEN-LAST:event_pnlThongKeMouseClicked
 
     private void pnlHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlHoaDonMouseClicked
         activePanel(pnlHoaDon);
+        openFunctionPanel(new Bill_GUI());
     }//GEN-LAST:event_pnlHoaDonMouseClicked
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed

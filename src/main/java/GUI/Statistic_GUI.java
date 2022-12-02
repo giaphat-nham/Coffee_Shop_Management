@@ -4,17 +4,25 @@
  */
 package GUI;
 
+import BUS.Statistic_BUS;
+import DTO.ProductStatistic_DTO;
+import DTO.SaleStatistic_DTO;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author DLCH
  */
 public class Statistic_GUI extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Statistic_GUI
-     */
+    Statistic_BUS statisticBUS = new Statistic_BUS();
     public Statistic_GUI() {
         initComponents();
+        loadDoanhSo();
+        loadSanPham();
+        loadNhanVien();
     }
 
     /**
@@ -85,6 +93,7 @@ public class Statistic_GUI extends javax.swing.JPanel {
 
         lblPhaCheCount.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblPhaCheCount.setForeground(new java.awt.Color(94, 84, 142));
+        lblPhaCheCount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(94, 84, 142));
@@ -92,6 +101,7 @@ public class Statistic_GUI extends javax.swing.JPanel {
 
         lblPhucVuCount.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblPhucVuCount.setForeground(new java.awt.Color(94, 84, 142));
+        lblPhucVuCount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(94, 84, 142));
@@ -99,6 +109,7 @@ public class Statistic_GUI extends javax.swing.JPanel {
 
         lblQuanLyCount.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblQuanLyCount.setForeground(new java.awt.Color(94, 84, 142));
+        lblQuanLyCount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(94, 84, 142));
@@ -106,6 +117,7 @@ public class Statistic_GUI extends javax.swing.JPanel {
 
         lblTotalSalary.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblTotalSalary.setForeground(new java.awt.Color(94, 84, 142));
+        lblTotalSalary.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -128,8 +140,8 @@ public class Statistic_GUI extends javax.swing.JPanel {
                         .addComponent(lblQuanLyCount, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
-                        .addComponent(lblTotalSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTotalSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -243,7 +255,36 @@ public class Statistic_GUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    private void loadDoanhSo() {
+        DefaultTableModel model = (DefaultTableModel) tblDoanhSo.getModel();
+        ArrayList<SaleStatistic_DTO> sales = statisticBUS.sales();
+        
+        model.setRowCount(0);
+        
+        for (SaleStatistic_DTO st : sales) {
+            SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+            model.addRow(new Object[]{format.format(st.getDate()),st.getSales()});
+        }
+    }
+    
+    private void loadSanPham() {
+        DefaultTableModel model = (DefaultTableModel) tblSanPham.getModel();
+        ArrayList<ProductStatistic_DTO> productStatistic = statisticBUS.productStatistic();
+        
+        model.setRowCount(0);
+        
+        for (ProductStatistic_DTO ps : productStatistic) {
+            model.addRow(new Object[]{ps.getId(),ps.getName(),ps.getSaleCount()});
+        }
+    }
+    
+    private void loadNhanVien() {
+        lblPhaCheCount.setText(statisticBUS.phaCheCount()+"");
+        lblPhucVuCount.setText(statisticBUS.phucVuCount()+"");
+        lblQuanLyCount.setText(statisticBUS.quanLyCount()+"");
+        lblTotalSalary.setText(statisticBUS.totalSalary()+"");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

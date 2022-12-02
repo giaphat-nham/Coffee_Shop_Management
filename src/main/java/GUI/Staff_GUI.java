@@ -107,7 +107,15 @@ public class Staff_GUI extends javax.swing.JPanel {
             new String [] {
                 "Mã nhân viên", "Tên nhân viên"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblStaffList.setGridColor(new java.awt.Color(204, 153, 255));
         tblStaffList.setSelectionBackground(new java.awt.Color(204, 153, 255));
         tblStaffList.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -645,7 +653,14 @@ public class Staff_GUI extends javax.swing.JPanel {
 
     private void tblStaffListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStaffListMouseClicked
         int i = tblStaffList.getSelectedRow();
-        Staff_DTO staff = listStaff.get(i);
+        int selectedID = (int) tblStaffList.getValueAt(i, 0);
+        Staff_DTO staff = new Staff_DTO();
+        
+        for (Staff_DTO st : listStaff) {
+            if (st.getId() == selectedID) {
+                staff = st;
+            }
+        }
 
         if (i >= 0) {
             lblStaffID.setText(staff.getId() + "");

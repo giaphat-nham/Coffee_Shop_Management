@@ -27,6 +27,10 @@ public class Staff_DTO {
         this.type = type;
     }
 
+    public Staff_DTO () {
+        
+    }
+    
     public int getId() {
         return id;
     }

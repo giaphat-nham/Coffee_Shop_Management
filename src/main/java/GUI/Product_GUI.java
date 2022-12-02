@@ -521,7 +521,14 @@ public class Product_GUI extends javax.swing.JPanel {
 
     private void tblProductListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductListMouseClicked
         int i = tblProductList.getSelectedRow();
-        Product_DTO product = listProduct.get(i);
+        int selectedID = (int) tblProductList.getValueAt(i, 0);
+        Product_DTO product = new Product_DTO();
+        
+        for (Product_DTO pd : listProduct) {
+            if (pd.getId() == selectedID) {
+                product = pd;
+            }
+        }
 
         if (i >= 0) {
             lblProductID.setText(product.getId() + "");

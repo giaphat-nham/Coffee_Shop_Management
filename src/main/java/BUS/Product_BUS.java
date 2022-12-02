@@ -34,4 +34,16 @@ public class Product_BUS {
     public ArrayList<Product_DTO> search(String key, String filter) {
         return dao.search(key, filter);
     }
+    
+    public ArrayList<Product_DTO> search(String key,ArrayList<Product_DTO> list) {
+        ArrayList<Product_DTO> result = new ArrayList();
+        
+        for (Product_DTO pd : list) {
+            if (pd.getName().toLowerCase().contains(key.toLowerCase())) {
+                result.add(pd);
+            }
+        }
+        
+        return result;
+    }
 }
