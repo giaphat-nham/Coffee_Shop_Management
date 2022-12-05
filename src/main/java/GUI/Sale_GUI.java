@@ -197,7 +197,7 @@ public class Sale_GUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(scrProductListBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
@@ -407,9 +407,13 @@ public class Sale_GUI extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn sản phẩm cần xóa");
         } else {
             int option = JOptionPane.showConfirmDialog(this, "Bạn muốn xóa sản phẩm này?", "Xóa sản phẩm", JOptionPane.OK_CANCEL_OPTION);
-
+            int total = 0;
             if (option == JOptionPane.OK_OPTION) {
                 listDetails.remove(selectedDetail);
+                for (BillDetails_DTO dt : listDetails) {
+                    total += dt.total();
+                }
+                lblTotal.setText(total + "");
                 loadOrder(listDetails);
                 selectedDetail = null;
             }
