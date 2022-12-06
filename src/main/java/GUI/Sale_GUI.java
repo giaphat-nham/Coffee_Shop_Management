@@ -158,6 +158,7 @@ public class Sale_GUI extends javax.swing.JPanel {
 
         btnCheckOut.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnCheckOut.setText("THANH TOÁN");
+        btnCheckOut.setEnabled(false);
         btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckOutActionPerformed(evt);
@@ -306,6 +307,10 @@ public class Sale_GUI extends javax.swing.JPanel {
         listDetails.clear();
         lblTotal.setText("0");
         loadOrder(listDetails);
+        if (Integer.parseInt(lblTotal.getText()) > 0) {
+            btnCheckOut.setEnabled(true);
+        } else
+            btnCheckOut.setEnabled(false);
     }//GEN-LAST:event_btnClearSaleActionPerformed
 
     private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
@@ -333,6 +338,11 @@ public class Sale_GUI extends javax.swing.JPanel {
                 listDetails.clear();
                 lblTotal.setText("0");
                 loadOrder(listDetails);
+                if (Integer.parseInt(lblTotal.getText()) > 0) {
+                    btnCheckOut.setEnabled(true);
+                } else {
+                    btnCheckOut.setEnabled(false);
+                }
             }
         }
     }//GEN-LAST:event_btnCheckOutActionPerformed
@@ -395,6 +405,11 @@ public class Sale_GUI extends javax.swing.JPanel {
                     selectedProduct.setId(0);
                     loadOrder(listDetails);
                     lblTotal.setText(total + "");
+                    if (Integer.parseInt(lblTotal.getText()) > 0) {
+                        btnCheckOut.setEnabled(true);
+                    } else {
+                        btnCheckOut.setEnabled(false);
+                    }
                 }
             } catch (NumberFormatException e) {
 
@@ -416,6 +431,9 @@ public class Sale_GUI extends javax.swing.JPanel {
                 lblTotal.setText(total + "");
                 loadOrder(listDetails);
                 selectedDetail = null;
+                if (Integer.parseInt(lblTotal.getText()) > 0) {
+                    btnCheckOut.setEnabled(true);
+                } else btnCheckOut.setEnabled(false);
             }
         }
     }//GEN-LAST:event_btnDeleteProductActionPerformed
